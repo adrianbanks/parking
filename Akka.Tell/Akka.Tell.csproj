@@ -7,7 +7,7 @@
     <RootNamespace>Parking.Akka.Tell</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Akka" Version="1.3.8" />
+    <PackageReference Include="Akka" Version="1.4.46" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Parking.Domain\Parking.Domain.csproj" />
