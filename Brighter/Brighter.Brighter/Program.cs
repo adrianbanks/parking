@@ -19,7 +19,14 @@ internal static class Program
         var host = new HostBuilder()
             .ConfigureServices((_, collection) =>
             {
-                collection.AddBrighter().AutoFromAssemblies();
+                collection.AddBrighter().AsyncHandlers(registry =>
+                {
+                    registry.RegisterAsync<InformationCommand, InformationCommandHandler>();
+                    registry.RegisterAsync<FetchDataFromUrlCommand, FetchDataFromUrlCommandHandler>();
+                    registry.RegisterAsync<ParseCarParksFromDataCommand, ParseCarParksFromDataCommandHandler>();
+                    registry.RegisterAsync<BestMatchCarParkCommand, BestMatchCarParkCommandHandler>();
+                    registry.RegisterAsync<CarParkToOutputCommand, CarParkToOutputCommandHandler>();
+                });
             })
             .Build();
 
