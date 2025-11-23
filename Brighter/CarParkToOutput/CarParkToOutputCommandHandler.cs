@@ -7,7 +7,7 @@ namespace Parking.Brighter.CarParkToOutput;
 
 internal sealed class CarParkToOutputCommandHandler : RequestHandlerAsync<CarParkToOutputCommand>
 {
-    public override async Task<CarParkToOutputCommand> HandleAsync(CarParkToOutputCommand command, CancellationToken cancellationToken = new CancellationToken())
+    public override async Task<CarParkToOutputCommand> HandleAsync(CarParkToOutputCommand command, CancellationToken cancellationToken = default)
     {
         var output = CarParkOutputFormatter.Format(command.BestMatch);
         command.Output = output;

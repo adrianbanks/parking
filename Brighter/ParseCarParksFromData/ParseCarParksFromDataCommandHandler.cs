@@ -7,7 +7,7 @@ namespace Parking.Brighter.ParseCarParksFromData;
 
 internal sealed class ParseCarParksFromDataCommandHandler : RequestHandlerAsync<ParseCarParksFromDataCommand>
 {
-    public override async Task<ParseCarParksFromDataCommand> HandleAsync(ParseCarParksFromDataCommand command, CancellationToken cancellationToken = new CancellationToken())
+    public override async Task<ParseCarParksFromDataCommand> HandleAsync(ParseCarParksFromDataCommand command, CancellationToken cancellationToken = default)
     {
         var carParks = CarParkParser.Parse(command.Data);
         command.CarParks = carParks;

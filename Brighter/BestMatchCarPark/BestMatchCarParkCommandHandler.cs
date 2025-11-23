@@ -7,7 +7,7 @@ namespace Parking.Brighter.BestMatchCarPark;
 
 internal sealed class BestMatchCarParkCommandHandler : RequestHandlerAsync<BestMatchCarParkCommand>
 {
-    public override async Task<BestMatchCarParkCommand> HandleAsync(BestMatchCarParkCommand command, CancellationToken cancellationToken = new CancellationToken())
+    public override async Task<BestMatchCarParkCommand> HandleAsync(BestMatchCarParkCommand command, CancellationToken cancellationToken = default)
     {
         var bestCarPark = BestMatchCalculator.CalculateBestMatch(command.CarParks);
         command.BestMatch = bestCarPark;
