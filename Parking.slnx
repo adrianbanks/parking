@@ -6,6 +6,9 @@
     <Project Path="Akka.Ask/Akka.Ask.csproj" />
     <Project Path="Akka.Tell/Akka.Tell.csproj" />
   </Folder>
+  <Folder Name="/Brighter/">
+    <Project Path="Brighter/Brighter.Brighter/Brighter.Brighter.csproj" />
+  </Folder>
   <Folder Name="/Mediatr/">
     <Project Path="Mediatr.Publish/Mediatr.Publish.csproj" />
     <Project Path="Mediatr.Send/Mediatr.Send.csproj" />
@@ -14,7 +17,6 @@
     <Project Path="MicroBus.Query/MicroBus.Query.csproj" />
     <Project Path="MicroBus.Send/MicroBus.Send.csproj" />
   </Folder>
-  <Project Path="Brighter/Brighter.csproj" />
   <Project Path="NoFramework/NoFramework.csproj" />
   <Project Path="Parking.Domain/Parking.Domain.csproj" />
 </Solution>
