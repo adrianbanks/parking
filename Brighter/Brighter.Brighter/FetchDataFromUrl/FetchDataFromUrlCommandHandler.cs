@@ -5,7 +5,7 @@ using Parking.Domain;
 
 namespace Parking.Brighter.Brighter.FetchDataFromUrl;
 
-internal sealed class FetchDataFromUrlRequestHandler : RequestHandlerAsync<FetchDataFromUrlCommand>
+internal sealed class FetchDataFromUrlCommandHandler : RequestHandlerAsync<FetchDataFromUrlCommand>
 {
     public override async Task<FetchDataFromUrlCommand> HandleAsync(FetchDataFromUrlCommand command, CancellationToken cancellationToken = default)
     {
