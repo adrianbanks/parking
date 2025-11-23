@@ -5,7 +5,7 @@ using Parking.Mediatr.Publish.BestMatchCarPark;
 using Parking.Mediatr.Publish.CarParkToOutput;
 using Parking.Mediatr.Publish.FetchDataFromUrl;
 using Parking.Mediatr.Publish.Information;
-using Parking.Mediatr.Publish.ParseDataFromHtml;
+using Parking.Mediatr.Publish.ParseCarParksFromData;
 using Parking.Mediatr.Publish.SendOutput;
 
 namespace Parking.Mediatr.Publish
@@ -31,9 +31,9 @@ namespace Parking.Mediatr.Publish
                 yield return new FetchDataFromUrlNotificationHandler(Mediator);
             }
 
-            if (type == typeof(INotificationHandler<ParseDataFromHtmlNotification>))
+            if (type == typeof(INotificationHandler<ParseCarParksFromDataNotification>))
             {
-                yield return new ParseDataFromHtmlNotificationHandler(Mediator);
+                yield return new ParseCarParksFromDataNotificationHandler(Mediator);
             }
 
             if (type == typeof(INotificationHandler<BestMatchCarParkNotification>))

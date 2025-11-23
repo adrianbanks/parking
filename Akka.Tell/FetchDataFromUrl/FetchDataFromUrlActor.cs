@@ -1,5 +1,5 @@
 ﻿using Akka.Actor;
-using Parking.Akka.Tell.ParseDataFromHtml;
+using Parking.Akka.Tell.ParseCarParksFromData;
 using Parking.Domain;
 
 namespace Parking.Akka.Tell.FetchDataFromUrl
@@ -8,12 +8,12 @@ namespace Parking.Akka.Tell.FetchDataFromUrl
     {
         public FetchDataFromUrlActor()
         {
-            var parseDataActor = Context.ActorOf<ParseDataFromHtmlActor>();
+            var parseDataActor = Context.ActorOf<ParseCarParksFromDataActor>();
 
             Receive<FetchDataFromUrlMessage>(async message =>
             {
                 var html = await DataFetcher.FetchData(message.Url);
-                parseDataActor.Tell(new ParseDataFromHtmlMessage(html));
+                parseDataActor.Tell(new ParseCarParksFromDataMessage(html));
             });
         }
     }

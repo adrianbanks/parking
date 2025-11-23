@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Enexure.MicroBus;
 using Parking.Domain;
-using Parking.MicroBus.Send.ParseDataFromHtml;
+using Parking.MicroBus.Send.ParseCarParksFromData;
 
 namespace Parking.MicroBus.Send.FetchDataFromUrl
 {
@@ -14,7 +14,7 @@ namespace Parking.MicroBus.Send.FetchDataFromUrl
         public async Task Handle(FetchDataFromUrlCommand command)
         {
             var html = await DataFetcher.FetchData(command.Url);
-            await bus.SendAsync(new ParseDataFromHtmlCommand(html));
+            await bus.SendAsync(new ParseCarParksFromDataCommand(html));
         }
     }
 }

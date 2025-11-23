@@ -6,7 +6,7 @@ using Parking.Mediatr.Send.BestMatchCarPark;
 using Parking.Mediatr.Send.CarParkToOutput;
 using Parking.Mediatr.Send.FetchDataFromUrl;
 using Parking.Mediatr.Send.Information;
-using Parking.Mediatr.Send.ParseDataFromHtml;
+using Parking.Mediatr.Send.ParseCarParksFromData;
 
 namespace Parking.Mediatr.Send
 {
@@ -26,9 +26,9 @@ namespace Parking.Mediatr.Send
                 return new FetchDataFromUrlRequestHandler();
             }
 
-            if (type == typeof(IRequestHandler<ParseDataFromHtmlRequest, IEnumerable<CarPark>>))
+            if (type == typeof(IRequestHandler<ParseCarParksFromDataRequest, IEnumerable<CarPark>>))
             {
-                return new ParseDataFromHtmlRequestHandler();
+                return new ParseCarParksFromDataRequestHandler();
             }
 
             if (type == typeof(IRequestHandler<BestMatchCarParkRequest, CarPark>))

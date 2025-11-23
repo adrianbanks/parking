@@ -5,7 +5,7 @@ using Parking.Brighter.BestMatchCarPark;
 using Parking.Brighter.CarParkToOutput;
 using Parking.Brighter.FetchDataFromUrl;
 using Parking.Brighter.Information;
-using Parking.Brighter.ParseDataFromHtml;
+using Parking.Brighter.ParseCarParksFromData;
 
 namespace Parking.Brighter
 {
@@ -23,7 +23,7 @@ namespace Parking.Brighter
 
             registry.RegisterAsync<InformationCommand, InformationCommandHandler>();
             registry.RegisterAsync<FetchDataFromUrlCommand, FetchDataFromUrlRequestHandler>();
-            registry.RegisterAsync<ParseDataFromHtmlCommand, ParseDataFromHtmlCommandHandler>();
+            registry.RegisterAsync<ParseCarParksFromDataCommand, ParseCarParksFromDataCommandHandler>();
             registry.RegisterAsync<BestMatchCarParkCommand, BestMatchCarParkCommandHandler>();
             registry.RegisterAsync<CarParkToOutputCommand, CarParkToOutputCommandHandler>();
 
@@ -40,10 +40,10 @@ namespace Parking.Brighter
             var fetchDataFromUrlCommand = new FetchDataFromUrlCommand(informationCommand.Url);
             await commandProcessor.SendAsync(fetchDataFromUrlCommand);
 
-            var parseDataFromHtmlCommand = new ParseDataFromHtmlCommand(fetchDataFromUrlCommand.Html);
-            await commandProcessor.SendAsync(parseDataFromHtmlCommand);
+            var parseCarParksFromDataCommand = new ParseCarParksFromDataCommand(fetchDataFromUrlCommand.Html);
+            await commandProcessor.SendAsync(parseCarParksFromDataCommand);
 
-            var bestMatchCarParkCommand = new BestMatchCarParkCommand(parseDataFromHtmlCommand.CarParks);
+            var bestMatchCarParkCommand = new BestMatchCarParkCommand(parseCarParksFromDataCommand.CarParks);
             await commandProcessor.SendAsync(bestMatchCarParkCommand);
 
             var carParkToOutputCommand = new CarParkToOutputCommand(bestMatchCarParkCommand.BestMatch);

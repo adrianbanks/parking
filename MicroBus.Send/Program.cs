@@ -6,7 +6,7 @@ using Parking.MicroBus.Send.BestMatchCarPark;
 using Parking.MicroBus.Send.CarParkToOutput;
 using Parking.MicroBus.Send.FetchDataFromUrl;
 using Parking.MicroBus.Send.Information;
-using Parking.MicroBus.Send.ParseDataFromHtml;
+using Parking.MicroBus.Send.ParseCarParksFromData;
 using Parking.MicroBus.Send.SendOutput;
 
 namespace Parking.MicroBus.Send
@@ -18,7 +18,7 @@ namespace Parking.MicroBus.Send
             var busBuilder = new BusBuilder()
                 .RegisterCommandHandler<InformationCommand, InformationCommandHandler>()
                 .RegisterCommandHandler<FetchDataFromUrlCommand, FetchDataFromUrlCommandHandler>()
-                .RegisterCommandHandler<ParseDataFromHtmlCommand, ParseDataFromHtmlCommandHandler>()
+                .RegisterCommandHandler<ParseCarParksFromDataCommand, ParseCarParksFromDataCommandHandler>()
                 .RegisterCommandHandler<BestMatchCarParkCommand, BestMatchCarParkCommandHandler>()
                 .RegisterCommandHandler<CarParkToOutputCommand, CarParkToOutputCommandHandler>()
                 .RegisterCommandHandler<SendOutputCommand, SendOutputCommandHandler>();

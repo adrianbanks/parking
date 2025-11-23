@@ -9,7 +9,7 @@ using Parking.MicroBus.Query.BestMatchCarPark;
 using Parking.MicroBus.Query.CarParkToOutput;
 using Parking.MicroBus.Query.FetchDataFromUrl;
 using Parking.MicroBus.Query.Information;
-using Parking.MicroBus.Query.ParseDataFromHtml;
+using Parking.MicroBus.Query.ParseCarParksFromData;
 
 namespace Parking.MicroBus.Query
 {
@@ -20,7 +20,7 @@ namespace Parking.MicroBus.Query
             var busBuilder = new BusBuilder()
                 .RegisterQueryHandler<InformationQuery, string, InformationQueryHandler>()
                 .RegisterQueryHandler<FetchDataFromUrlQuery, string, FetchDataFromUrlQueryHandler>()
-                .RegisterQueryHandler<ParseDataFromHtmlQuery, IEnumerable<CarPark>, ParseDataFromHtmlQueryHandler>()
+                .RegisterQueryHandler<ParseCarParksFromDataQuery, IEnumerable<CarPark>, ParseCarParksFromDataQueryHandler>()
                 .RegisterQueryHandler<BestMatchCarParkQuery, CarPark, BestMatchCarParkQueryHandler>()
                 .RegisterQueryHandler<CarParkToOutputQuery, string, CarParkToOutputQueryHandler>();
 

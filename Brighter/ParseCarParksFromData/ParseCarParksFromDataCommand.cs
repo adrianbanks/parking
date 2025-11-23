@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using Paramore.Brighter;
 using Parking.Domain;
 
-namespace Parking.Brighter.ParseDataFromHtml
+namespace Parking.Brighter.ParseCarParksFromData
 {
-    internal sealed class ParseDataFromHtmlCommand : IRequest
+    internal sealed class ParseCarParksFromDataCommand : IRequest
     {
         public Guid Id { get; set; }
         public string Html { get; }
         public IEnumerable<CarPark> CarParks { get; set; }
 
-        public ParseDataFromHtmlCommand(string html)
+        public ParseCarParksFromDataCommand(string html)
         {
             Id = Guid.NewGuid();
             Html = html;

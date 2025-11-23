@@ -4,7 +4,7 @@ using Parking.Brighter.BestMatchCarPark;
 using Parking.Brighter.CarParkToOutput;
 using Parking.Brighter.FetchDataFromUrl;
 using Parking.Brighter.Information;
-using Parking.Brighter.ParseDataFromHtml;
+using Parking.Brighter.ParseCarParksFromData;
 
 namespace Parking.Brighter
 {
@@ -22,9 +22,9 @@ namespace Parking.Brighter
                 return new FetchDataFromUrlRequestHandler();
             }
 
-            if (handlerType == typeof(ParseDataFromHtmlCommandHandler))
+            if (handlerType == typeof(ParseCarParksFromDataCommandHandler))
             {
-                return new ParseDataFromHtmlCommandHandler();
+                return new ParseCarParksFromDataCommandHandler();
             }
 
             if (handlerType == typeof(BestMatchCarParkCommandHandler))

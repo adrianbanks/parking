@@ -2,15 +2,15 @@
 using Parking.Akka.Tell.BestMatchCarPark;
 using Parking.Domain;
 
-namespace Parking.Akka.Tell.ParseDataFromHtml
+namespace Parking.Akka.Tell.ParseCarParksFromData
 {
-    internal sealed class ParseDataFromHtmlActor : ReceiveActor
+    internal sealed class ParseCarParksFromDataActor : ReceiveActor
     {
-        public ParseDataFromHtmlActor()
+        public ParseCarParksFromDataActor()
         {
             var bestMatchActor = Context.ActorOf<BestMatchCarParkActor>();
 
-            Receive<ParseDataFromHtmlMessage>(message =>
+            Receive<ParseCarParksFromDataMessage>(message =>
             {
                 var carParks = CarParkParser.Parse(message.Html);
                 bestMatchActor.Tell(new BestMatchCarParkMessage(carParks));

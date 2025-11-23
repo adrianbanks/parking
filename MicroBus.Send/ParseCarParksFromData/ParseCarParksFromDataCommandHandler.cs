@@ -3,15 +3,15 @@ using Enexure.MicroBus;
 using Parking.Domain;
 using Parking.MicroBus.Send.BestMatchCarPark;
 
-namespace Parking.MicroBus.Send.ParseDataFromHtml
+namespace Parking.MicroBus.Send.ParseCarParksFromData
 {
-    internal sealed class ParseDataFromHtmlCommandHandler : ICommandHandler<ParseDataFromHtmlCommand>
+    internal sealed class ParseCarParksFromDataCommandHandler : ICommandHandler<ParseCarParksFromDataCommand>
     {
         private readonly IMicroBus bus;
 
-        public ParseDataFromHtmlCommandHandler(IMicroBus bus) => this.bus = bus;
+        public ParseCarParksFromDataCommandHandler(IMicroBus bus) => this.bus = bus;
 
-        public async Task Handle(ParseDataFromHtmlCommand command)
+        public async Task Handle(ParseCarParksFromDataCommand command)
         {
             var carParks = CarParkParser.Parse(command.Html);
             await bus.SendAsync(new BestMatchCarParkCommand(carParks));

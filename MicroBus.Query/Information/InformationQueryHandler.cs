@@ -4,7 +4,7 @@ using Parking.Domain;
 using Parking.MicroBus.Query.BestMatchCarPark;
 using Parking.MicroBus.Query.CarParkToOutput;
 using Parking.MicroBus.Query.FetchDataFromUrl;
-using Parking.MicroBus.Query.ParseDataFromHtml;
+using Parking.MicroBus.Query.ParseCarParksFromData;
 
 namespace Parking.MicroBus.Query.Information
 {
@@ -17,7 +17,7 @@ namespace Parking.MicroBus.Query.Information
         public async Task<string> Handle(InformationQuery query)
         {
             var html = await bus.QueryAsync(new FetchDataFromUrlQuery(SourceData.Url));
-            var carParkData = await bus.QueryAsync(new ParseDataFromHtmlQuery(html));
+            var carParkData = await bus.QueryAsync(new ParseCarParksFromDataQuery(html));
             var bestCarPark = await bus.QueryAsync(new BestMatchCarParkQuery(carParkData));
             return await bus.QueryAsync(new CarParkToOutputQuery(bestCarPark));
         }
