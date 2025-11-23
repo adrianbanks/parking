@@ -4,13 +4,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Paramore.Brighter;
 using Paramore.Brighter.Extensions.DependencyInjection;
-using Parking.Brighter.BestMatchCarPark;
-using Parking.Brighter.CarParkToOutput;
-using Parking.Brighter.FetchDataFromUrl;
-using Parking.Brighter.Information;
-using Parking.Brighter.ParseCarParksFromData;
+using Parking.Brighter.Brighter.BestMatchCarPark;
+using Parking.Brighter.Brighter.CarParkToOutput;
+using Parking.Brighter.Brighter.FetchDataFromUrl;
+using Parking.Brighter.Brighter.Information;
+using Parking.Brighter.Brighter.ParseCarParksFromData;
 
-namespace Parking.Brighter;
+namespace Parking.Brighter.Brighter;
 
 internal static class Program
 {

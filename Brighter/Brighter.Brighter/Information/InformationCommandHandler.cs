@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Paramore.Brighter;
 using Parking.Domain;
 
-namespace Parking.Brighter.Information;
+namespace Parking.Brighter.Brighter.Information;
 
 internal sealed class InformationCommandHandler : RequestHandlerAsync<InformationCommand>
 {

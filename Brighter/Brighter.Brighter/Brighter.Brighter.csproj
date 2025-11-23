@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <AssemblyName>Parking.Brighter</AssemblyName>
-    <RootNamespace>Parking.Brighter</RootNamespace>
+    <AssemblyName>Parking.Brighter.Brighter</AssemblyName>
+    <RootNamespace>Parking.Brighter.Brighter</RootNamespace>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
 

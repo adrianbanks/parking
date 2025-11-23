@@ -1,6 +1,6 @@
 ﻿using Paramore.Brighter;
 
-namespace Parking.Brighter.FetchDataFromUrl;
+namespace Parking.Brighter.Brighter.FetchDataFromUrl;
 
 internal sealed class FetchDataFromUrlCommand(string url) : Command(Id.Random())
 {

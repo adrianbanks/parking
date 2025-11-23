@@ -2,7 +2,7 @@
 using Paramore.Brighter;
 using Parking.Domain;
 
-namespace Parking.Brighter.ParseCarParksFromData;
+namespace Parking.Brighter.Brighter.ParseCarParksFromData;
 
 internal sealed class ParseCarParksFromDataCommand(string data) : Command(Id.Random())
 {

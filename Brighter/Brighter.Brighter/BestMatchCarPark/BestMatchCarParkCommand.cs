@@ -2,7 +2,7 @@
 using Paramore.Brighter;
 using Parking.Domain;
 
-namespace Parking.Brighter.BestMatchCarPark;
+namespace Parking.Brighter.Brighter.BestMatchCarPark;
 
 internal sealed class BestMatchCarParkCommand(IEnumerable<CarPark> carParks) : Command(Id.Random())
 {

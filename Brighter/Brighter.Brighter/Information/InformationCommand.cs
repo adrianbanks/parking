@@ -1,6 +1,6 @@
 ﻿using Paramore.Brighter;
 
-namespace Parking.Brighter.Information;
+namespace Parking.Brighter.Brighter.Information;
 
 internal sealed class InformationCommand() : Command(Id.Random())
 {

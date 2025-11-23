@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Paramore.Brighter;
 using Parking.Domain;
 
-namespace Parking.Brighter.ParseCarParksFromData;
+namespace Parking.Brighter.Brighter.ParseCarParksFromData;
 
 internal sealed class ParseCarParksFromDataCommandHandler : RequestHandlerAsync<ParseCarParksFromDataCommand>
 {

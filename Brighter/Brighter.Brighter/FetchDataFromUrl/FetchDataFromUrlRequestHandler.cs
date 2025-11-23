@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Paramore.Brighter;
 using Parking.Domain;
 
-namespace Parking.Brighter.FetchDataFromUrl;
+namespace Parking.Brighter.Brighter.FetchDataFromUrl;
 
 internal sealed class FetchDataFromUrlRequestHandler : RequestHandlerAsync<FetchDataFromUrlCommand>
 {

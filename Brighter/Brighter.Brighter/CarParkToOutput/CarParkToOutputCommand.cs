@@ -1,7 +1,7 @@
 ﻿using Paramore.Brighter;
 using Parking.Domain;
 
-namespace Parking.Brighter.CarParkToOutput;
+namespace Parking.Brighter.Brighter.CarParkToOutput;
 
 internal sealed class CarParkToOutputCommand(CarPark bestMatch) : Command(Id.Random())
 {

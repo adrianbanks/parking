@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Paramore.Brighter;
 using Parking.Domain;
 
-namespace Parking.Brighter.BestMatchCarPark;
+namespace Parking.Brighter.Brighter.BestMatchCarPark;
 
 internal sealed class BestMatchCarParkCommandHandler : RequestHandlerAsync<BestMatchCarParkCommand>
 {
