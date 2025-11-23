@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="4.8.1" />
+    <PackageReference Include="Autofac" Version="9.0.0" />
     <PackageReference Include="Enexure.MicroBus" Version="3.7.0" />
     <PackageReference Include="Enexure.MicroBus.Autofac" Version="3.7.0" />
   </ItemGroup>
