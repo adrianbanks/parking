@@ -2,13 +2,8 @@
 
 namespace Parking.MicroBus.Send.SendOutput
 {
-    internal sealed class SendOutputCommand : ICommand
+    internal sealed class SendOutputCommand(string output) : ICommand
     {
-        public string Output { get; }
-
-        public SendOutputCommand(string output)
-        {
-            Output = output;
-        }
+        public string Output { get; } = output;
     }
 }

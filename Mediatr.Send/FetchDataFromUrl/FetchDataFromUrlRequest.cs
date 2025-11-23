@@ -2,13 +2,8 @@
 
 namespace Parking.Mediatr.Send.FetchDataFromUrl
 {
-    internal class FetchDataFromUrlRequest : IRequest<string>
+    internal class FetchDataFromUrlRequest(string url) : IRequest<string>
     {
-        public string Url { get; }
-
-        public FetchDataFromUrlRequest(string url)
-        {
-            Url = url;
-        }
+        public string Url { get; } = url;
     }
 }

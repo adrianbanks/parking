@@ -1,16 +1,9 @@
-﻿namespace Parking.Domain
+namespace Parking.Domain
 {
-    public sealed class CarPark
+    public sealed class CarPark(string name, int numberOfFreeSpaces, int percentFull)
     {
-        public string Name { get; }
-        public int NumberOfFreeSpaces { get; }
-        public int PercentFull { get; }
-
-        public CarPark(string name, int numberOfFreeSpaces, int percentFull)
-        {
-            Name = name;
-            NumberOfFreeSpaces = numberOfFreeSpaces;
-            PercentFull = percentFull;
-        }
+        public string Name { get; } = name;
+        public int NumberOfFreeSpaces { get; } = numberOfFreeSpaces;
+        public int PercentFull { get; } = percentFull;
     }
 }

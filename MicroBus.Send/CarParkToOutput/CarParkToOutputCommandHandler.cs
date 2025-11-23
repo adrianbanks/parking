@@ -5,12 +5,8 @@ using Parking.MicroBus.Send.SendOutput;
 
 namespace Parking.MicroBus.Send.CarParkToOutput
 {
-    internal sealed class CarParkToOutputCommandHandler : ICommandHandler<CarParkToOutputCommand>
+    internal sealed class CarParkToOutputCommandHandler(IMicroBus bus) : ICommandHandler<CarParkToOutputCommand>
     {
-        private readonly IMicroBus bus;
-
-        public CarParkToOutputCommandHandler(IMicroBus bus) => this.bus = bus;
-
         public async Task Handle(CarParkToOutputCommand command)
         {
             var output = CarParkOutputFormatter.Format(command.BestMatch);

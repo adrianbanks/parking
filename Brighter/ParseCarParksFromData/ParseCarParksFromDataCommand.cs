@@ -5,16 +5,10 @@ using Parking.Domain;
 
 namespace Parking.Brighter.ParseCarParksFromData
 {
-    internal sealed class ParseCarParksFromDataCommand : IRequest
+    internal sealed class ParseCarParksFromDataCommand(string html) : IRequest
     {
-        public Guid Id { get; set; }
-        public string Html { get; }
+        public Guid Id { get; set; } = Guid.NewGuid();
+        public string Html { get; } = html;
         public IEnumerable<CarPark> CarParks { get; set; }
-
-        public ParseCarParksFromDataCommand(string html)
-        {
-            Id = Guid.NewGuid();
-            Html = html;
-        }
     }
 }

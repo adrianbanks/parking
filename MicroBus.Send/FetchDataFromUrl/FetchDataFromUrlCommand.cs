@@ -2,13 +2,8 @@
 
 namespace Parking.MicroBus.Send.FetchDataFromUrl
 {
-    internal sealed class FetchDataFromUrlCommand : ICommand
+    internal sealed class FetchDataFromUrlCommand(string url) : ICommand
     {
-        public string Url { get; }
-
-        public FetchDataFromUrlCommand(string url)
-        {
-            Url = url;
-        }
+        public string Url { get; } = url;
     }
 }

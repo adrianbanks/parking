@@ -1,12 +1,7 @@
 ﻿namespace Parking.Akka.Tell.SendOutput
 {
-    internal sealed class SendOutputMessage
+    internal sealed class SendOutputMessage(string output)
     {
-        public string Output { get; }
-
-        public SendOutputMessage(string output)
-        {
-            Output = output;
-        }
+        public string Output { get; } = output;
     }
 }

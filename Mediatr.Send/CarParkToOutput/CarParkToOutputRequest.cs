@@ -3,13 +3,8 @@ using Parking.Domain;
 
 namespace Parking.Mediatr.Send.CarParkToOutput
 {
-    internal sealed class CarParkToOutputRequest : IRequest<string>
+    internal sealed class CarParkToOutputRequest(CarPark carPark) : IRequest<string>
     {
-        public CarPark CarPark { get; }
-
-        public CarParkToOutputRequest(CarPark carPark)
-        {
-            CarPark = carPark;
-        }
+        public CarPark CarPark { get; } = carPark;
     }
 }

@@ -4,12 +4,8 @@ using Parking.Mediatr.Publish.ParseCarParksFromData;
 
 namespace Parking.Mediatr.Publish.FetchDataFromUrl
 {
-    internal sealed class FetchDataFromUrlNotificationHandler : NotificationHandler<FetchDataFromUrlNotification>
+    internal sealed class FetchDataFromUrlNotificationHandler(IMediator mediator) : NotificationHandler<FetchDataFromUrlNotification>
     {
-        private readonly IMediator mediator;
-
-        public FetchDataFromUrlNotificationHandler(IMediator mediator) => this.mediator = mediator;
-
         protected override async void HandleCore(FetchDataFromUrlNotification notification)
         {
             var html = await DataFetcher.FetchData(notification.Url);

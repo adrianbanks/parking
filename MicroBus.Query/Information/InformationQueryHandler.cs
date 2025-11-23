@@ -8,12 +8,8 @@ using Parking.MicroBus.Query.ParseCarParksFromData;
 
 namespace Parking.MicroBus.Query.Information
 {
-    internal sealed class InformationQueryHandler : IQueryHandler<InformationQuery, string>
+    internal sealed class InformationQueryHandler(IMicroBus bus) : IQueryHandler<InformationQuery, string>
     {
-        private readonly IMicroBus bus;
-
-        public InformationQueryHandler(IMicroBus bus) => this.bus = bus;
-
         public async Task<string> Handle(InformationQuery query)
         {
             var html = await bus.QueryAsync(new FetchDataFromUrlQuery(SourceData.Url));

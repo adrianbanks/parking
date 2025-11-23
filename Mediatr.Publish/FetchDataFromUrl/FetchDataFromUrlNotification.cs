@@ -2,13 +2,8 @@
 
 namespace Parking.Mediatr.Publish.FetchDataFromUrl
 {
-    internal class FetchDataFromUrlNotification : INotification
+    internal class FetchDataFromUrlNotification(string url) : INotification
     {
-        public string Url { get; }
-
-        public FetchDataFromUrlNotification(string url)
-        {
-            Url = url;
-        }
+        public string Url { get; } = url;
     }
 }

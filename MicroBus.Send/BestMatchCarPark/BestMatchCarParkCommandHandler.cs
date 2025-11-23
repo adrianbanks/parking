@@ -5,12 +5,8 @@ using Parking.MicroBus.Send.CarParkToOutput;
 
 namespace Parking.MicroBus.Send.BestMatchCarPark
 {
-    internal sealed class BestMatchCarParkCommandHandler : ICommandHandler<BestMatchCarParkCommand>
+    internal sealed class BestMatchCarParkCommandHandler(IMicroBus bus) : ICommandHandler<BestMatchCarParkCommand>
     {
-        private readonly IMicroBus bus;
-
-        public BestMatchCarParkCommandHandler(IMicroBus bus) => this.bus = bus;
-
         public async Task Handle(BestMatchCarParkCommand command)
         {
             var bestCarPark = BestMatchCalculator.CalculateBestMatch(command.CarParks);

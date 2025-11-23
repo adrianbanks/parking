@@ -5,12 +5,8 @@ using Parking.MicroBus.Send.ParseCarParksFromData;
 
 namespace Parking.MicroBus.Send.FetchDataFromUrl
 {
-    internal sealed class FetchDataFromUrlCommandHandler : ICommandHandler<FetchDataFromUrlCommand>
+    internal sealed class FetchDataFromUrlCommandHandler(IMicroBus bus) : ICommandHandler<FetchDataFromUrlCommand>
     {
-        private readonly IMicroBus bus;
-
-        public FetchDataFromUrlCommandHandler(IMicroBus bus) => this.bus = bus;
-
         public async Task Handle(FetchDataFromUrlCommand command)
         {
             var html = await DataFetcher.FetchData(command.Url);

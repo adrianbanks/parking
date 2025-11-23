@@ -3,13 +3,8 @@ using Parking.Domain;
 
 namespace Parking.MicroBus.Query.CarParkToOutput
 {
-    internal sealed class CarParkToOutputQuery : IQuery<CarParkToOutputQuery, string>
+    internal sealed class CarParkToOutputQuery(CarPark bestMatch) : IQuery<CarParkToOutputQuery, string>
     {
-        public CarPark BestMatch { get; }
-
-        public CarParkToOutputQuery(CarPark bestMatch)
-        {
-            BestMatch = bestMatch;
-        }
+        public CarPark BestMatch { get; } = bestMatch;
     }
 }

@@ -4,13 +4,8 @@ using Parking.Domain;
 
 namespace Parking.MicroBus.Send.BestMatchCarPark
 {
-    internal sealed class BestMatchCarParkCommand : ICommand
+    internal sealed class BestMatchCarParkCommand(IEnumerable<CarPark> carParks) : ICommand
     {
-        public IEnumerable<CarPark> CarParks { get; }
-
-        public BestMatchCarParkCommand(IEnumerable<CarPark> carParks)
-        {
-            CarParks = carParks;
-        }
+        public IEnumerable<CarPark> CarParks { get; } = carParks;
     }
 }

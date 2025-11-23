@@ -3,13 +3,8 @@ using Parking.Domain;
 
 namespace Parking.Akka.Tell.BestMatchCarPark
 {
-    internal sealed class BestMatchCarParkMessage
+    internal sealed class BestMatchCarParkMessage(IEnumerable<CarPark> carParks)
     {
-        public IEnumerable<CarPark> CarParks { get; }
-
-        public BestMatchCarParkMessage(IEnumerable<CarPark> carParks)
-        {
-            CarParks = carParks;
-        }
+        public IEnumerable<CarPark> CarParks { get; } = carParks;
     }
 }

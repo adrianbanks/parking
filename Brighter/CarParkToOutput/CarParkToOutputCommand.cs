@@ -4,16 +4,10 @@ using Parking.Domain;
 
 namespace Parking.Brighter.CarParkToOutput
 {
-    internal sealed class CarParkToOutputCommand : IRequest
+    internal sealed class CarParkToOutputCommand(CarPark bestMatch) : IRequest
     {
-        public Guid Id { get; set; }
-        public CarPark BestMatch { get; }
+        public Guid Id { get; set; } = Guid.NewGuid();
+        public CarPark BestMatch { get; } = bestMatch;
         public string Output { get; set; }
-
-        public CarParkToOutputCommand(CarPark bestMatch)
-        {
-            Id = Guid.NewGuid();
-            BestMatch = bestMatch;
-        }
     }
 }

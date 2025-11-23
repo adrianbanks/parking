@@ -2,13 +2,8 @@
 
 namespace Parking.Akka.Ask.CarParkToOutput
 {
-    internal sealed class CarParkToOutputMessage
+    internal sealed class CarParkToOutputMessage(CarPark carPark)
     {
-        public CarPark CarPark { get; }
-
-        public CarParkToOutputMessage(CarPark carPark)
-        {
-            CarPark = carPark;
-        }
+        public CarPark CarPark { get; } = carPark;
     }
 }

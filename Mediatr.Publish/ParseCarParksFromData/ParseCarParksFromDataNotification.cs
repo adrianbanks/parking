@@ -2,13 +2,8 @@
 
 namespace Parking.Mediatr.Publish.ParseCarParksFromData
 {
-    internal sealed class ParseCarParksFromDataNotification : INotification
+    internal sealed class ParseCarParksFromDataNotification(string html) : INotification
     {
-        public string Html { get; }
-
-        public ParseCarParksFromDataNotification(string html)
-        {
-            Html = html;
-        }
+        public string Html { get; } = html;
     }
 }

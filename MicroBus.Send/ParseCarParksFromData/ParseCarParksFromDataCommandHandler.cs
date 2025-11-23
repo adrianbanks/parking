@@ -5,12 +5,8 @@ using Parking.MicroBus.Send.BestMatchCarPark;
 
 namespace Parking.MicroBus.Send.ParseCarParksFromData
 {
-    internal sealed class ParseCarParksFromDataCommandHandler : ICommandHandler<ParseCarParksFromDataCommand>
+    internal sealed class ParseCarParksFromDataCommandHandler(IMicroBus bus) : ICommandHandler<ParseCarParksFromDataCommand>
     {
-        private readonly IMicroBus bus;
-
-        public ParseCarParksFromDataCommandHandler(IMicroBus bus) => this.bus = bus;
-
         public async Task Handle(ParseCarParksFromDataCommand command)
         {
             var carParks = CarParkParser.Parse(command.Html);

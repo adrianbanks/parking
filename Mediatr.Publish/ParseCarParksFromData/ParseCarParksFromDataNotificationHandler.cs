@@ -4,12 +4,8 @@ using Parking.Mediatr.Publish.BestMatchCarPark;
 
 namespace Parking.Mediatr.Publish.ParseCarParksFromData
 {
-    internal sealed class ParseCarParksFromDataNotificationHandler : NotificationHandler<ParseCarParksFromDataNotification>
+    internal sealed class ParseCarParksFromDataNotificationHandler(IMediator mediator) : NotificationHandler<ParseCarParksFromDataNotification>
     {
-        private readonly IMediator mediator;
-
-        public ParseCarParksFromDataNotificationHandler(IMediator mediator) => this.mediator = mediator;
-
         protected override async void HandleCore(ParseCarParksFromDataNotification notification)
         {
             var carParks = CarParkParser.Parse(notification.Html);

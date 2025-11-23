@@ -3,16 +3,10 @@ using Paramore.Brighter;
 
 namespace Parking.Brighter.FetchDataFromUrl
 {
-    internal sealed class FetchDataFromUrlCommand : IRequest
+    internal sealed class FetchDataFromUrlCommand(string url) : IRequest
     {
-        public Guid Id { get; set; }
-        public string Url { get; }
+        public Guid Id { get; set; } = Guid.NewGuid();
+        public string Url { get; } = url;
         public string Html { get; set; }
-
-        public FetchDataFromUrlCommand(string url)
-        {
-            Id = Guid.NewGuid();
-            Url = url;
-        }
     }
 }

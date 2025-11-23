@@ -5,16 +5,10 @@ using Parking.Domain;
 
 namespace Parking.Brighter.BestMatchCarPark
 {
-    internal sealed class BestMatchCarParkCommand : IRequest
+    internal sealed class BestMatchCarParkCommand(IEnumerable<CarPark> carParks) : IRequest
     {
-        public Guid Id { get; set; }
-        public IEnumerable<CarPark> CarParks { get; }
+        public Guid Id { get; set; } = Guid.NewGuid();
+        public IEnumerable<CarPark> CarParks { get; } = carParks;
         public CarPark BestMatch { get; set; }
-
-        public BestMatchCarParkCommand(IEnumerable<CarPark> carParks)
-        {
-            Id = Guid.NewGuid();
-            CarParks = carParks;
-        }
     }
 }

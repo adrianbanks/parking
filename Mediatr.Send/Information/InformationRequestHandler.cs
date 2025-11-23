@@ -8,15 +8,8 @@ using Parking.Mediatr.Send.ParseCarParksFromData;
 
 namespace Parking.Mediatr.Send.Information
 {
-    internal sealed class InformationRequestHandler : AsyncRequestHandler<InformationRequest, string>
+    internal sealed class InformationRequestHandler(IMediator mediator) : AsyncRequestHandler<InformationRequest, string>
     {
-        private readonly IMediator mediator;
-
-        public InformationRequestHandler(IMediator mediator)
-        {
-            this.mediator = mediator;
-        }
-
         protected override async Task<string> HandleCore(InformationRequest request)
         {
             var html = await mediator.Send(new FetchDataFromUrlRequest(SourceData.Url));

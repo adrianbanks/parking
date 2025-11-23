@@ -2,13 +2,8 @@
 
 namespace Parking.MicroBus.Query.FetchDataFromUrl
 {
-    internal sealed class FetchDataFromUrlQuery : IQuery<FetchDataFromUrlQuery, string>
+    internal sealed class FetchDataFromUrlQuery(string url) : IQuery<FetchDataFromUrlQuery, string>
     {
-        public string Url { get; }
-
-        public FetchDataFromUrlQuery(string url)
-        {
-            Url = url;
-        }
+        public string Url { get; } = url;
     }
 }

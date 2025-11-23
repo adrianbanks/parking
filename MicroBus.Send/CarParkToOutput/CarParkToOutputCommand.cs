@@ -3,13 +3,8 @@ using Parking.Domain;
 
 namespace Parking.MicroBus.Send.CarParkToOutput
 {
-    internal sealed class CarParkToOutputCommand : ICommand
+    internal sealed class CarParkToOutputCommand(CarPark bestMatch) : ICommand
     {
-        public CarPark BestMatch { get; }
-
-        public CarParkToOutputCommand(CarPark bestMatch)
-        {
-            BestMatch = bestMatch;
-        }
+        public CarPark BestMatch { get; } = bestMatch;
     }
 }
