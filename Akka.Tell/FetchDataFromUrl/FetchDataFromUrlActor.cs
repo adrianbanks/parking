@@ -10,7 +10,7 @@ internal sealed class FetchDataFromUrlActor : ReceiveActor
     {
         var parseDataActor = Context.ActorOf<ParseCarParksFromDataActor>();
 
-        Receive<FetchDataFromUrlMessage>(async message =>
+        ReceiveAsync<FetchDataFromUrlMessage>(async message =>
         {
             var data = await DataFetcher.FetchData(message.Url);
             parseDataActor.Tell(new ParseCarParksFromDataMessage(data));
