@@ -3,8 +3,7 @@ using Paramore.Brighter;
 
 namespace Parking.Brighter.Information;
 
-internal sealed class InformationCommand : IRequest
+internal sealed class InformationCommand() : Command(Guid.NewGuid())
 {
-    public Guid Id { get; set; } = Guid.NewGuid();
     public string Url { get; set; }
 }
