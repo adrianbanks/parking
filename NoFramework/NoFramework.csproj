@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <AssemblyName>Parking.NoFramework</AssemblyName>
+        <RootNamespace>Parking.NoFramework</RootNamespace>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Parking.Domain\Parking.Domain.csproj" />
+    </ItemGroup>
+</Project>
