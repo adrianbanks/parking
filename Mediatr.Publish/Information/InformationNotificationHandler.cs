@@ -2,13 +2,12 @@
 using Parking.Domain;
 using Parking.Mediatr.Publish.FetchDataFromUrl;
 
-namespace Parking.Mediatr.Publish.Information
+namespace Parking.Mediatr.Publish.Information;
+
+internal sealed class InformationNotificationHandler(IMediator mediator) : NotificationHandler<InformationNotification>
 {
-    internal sealed class InformationNotificationHandler(IMediator mediator) : NotificationHandler<InformationNotification>
+    protected override async void HandleCore(InformationNotification notification)
     {
-        protected override async void HandleCore(InformationNotification notification)
-        {
-            await mediator.Publish(new FetchDataFromUrlNotification(SourceData.Url));
-        }
+        await mediator.Publish(new FetchDataFromUrlNotification(SourceData.Url));
     }
 }

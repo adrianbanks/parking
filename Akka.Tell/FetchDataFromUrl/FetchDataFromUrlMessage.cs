@@ -1,7 +1,6 @@
-﻿namespace Parking.Akka.Tell.FetchDataFromUrl
+﻿namespace Parking.Akka.Tell.FetchDataFromUrl;
+
+internal sealed class FetchDataFromUrlMessage(string url)
 {
-    internal sealed class FetchDataFromUrlMessage(string url)
-    {
-        public string Url { get; } = url;
-    }
+    public string Url { get; } = url;
 }

@@ -1,17 +1,16 @@
 ﻿using Akka.Actor;
 using Parking.Domain;
 
-namespace Parking.Akka.Ask.ParseCarParksFromData
+namespace Parking.Akka.Ask.ParseCarParksFromData;
+
+internal sealed class ParseCarParksFromDataActor : ReceiveActor
 {
-    internal sealed class ParseCarParksFromDataActor : ReceiveActor
+    public ParseCarParksFromDataActor()
     {
-        public ParseCarParksFromDataActor()
+        Receive<ParseCarParksFromDataMessage>(message =>
         {
-            Receive<ParseCarParksFromDataMessage>(message =>
-            {
-                var carParks = CarParkParser.Parse(message.Data);
-                Sender.Tell(carParks);
-            });
-        }
+            var carParks = CarParkParser.Parse(message.Data);
+            Sender.Tell(carParks);
+        });
     }
 }

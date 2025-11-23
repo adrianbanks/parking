@@ -2,13 +2,12 @@
 using MediatR;
 using Parking.Domain;
 
-namespace Parking.Mediatr.Send.FetchDataFromUrl
+namespace Parking.Mediatr.Send.FetchDataFromUrl;
+
+internal sealed class FetchDataFromUrlRequestHandler : AsyncRequestHandler<FetchDataFromUrlRequest, string>
 {
-    internal sealed class FetchDataFromUrlRequestHandler : AsyncRequestHandler<FetchDataFromUrlRequest, string>
+    protected override async Task<string> HandleCore(FetchDataFromUrlRequest request)
     {
-        protected override async Task<string> HandleCore(FetchDataFromUrlRequest request)
-        {
-            return await DataFetcher.FetchData(request.Url);
-        }
+        return await DataFetcher.FetchData(request.Url);
     }
 }

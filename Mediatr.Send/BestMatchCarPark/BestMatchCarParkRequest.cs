@@ -2,10 +2,9 @@
 using MediatR;
 using Parking.Domain;
 
-namespace Parking.Mediatr.Send.BestMatchCarPark
+namespace Parking.Mediatr.Send.BestMatchCarPark;
+
+internal sealed class BestMatchCarParkRequest(IEnumerable<CarPark> carParks) : IRequest<CarPark>
 {
-    internal sealed class BestMatchCarParkRequest(IEnumerable<CarPark> carParks) : IRequest<CarPark>
-    {
-        public IEnumerable<CarPark> CarParks { get; } = carParks;
-    }
+    public IEnumerable<CarPark> CarParks { get; } = carParks;
 }

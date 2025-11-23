@@ -2,10 +2,9 @@
 using MediatR;
 using Parking.Domain;
 
-namespace Parking.Mediatr.Send.ParseCarParksFromData
+namespace Parking.Mediatr.Send.ParseCarParksFromData;
+
+internal sealed class ParseCarParksFromDataRequest(string data) : IRequest<IEnumerable<CarPark>>
 {
-    internal sealed class ParseCarParksFromDataRequest(string data) : IRequest<IEnumerable<CarPark>>
-    {
-        public string Data { get; } = data;
-    }
+    public string Data { get; } = data;
 }

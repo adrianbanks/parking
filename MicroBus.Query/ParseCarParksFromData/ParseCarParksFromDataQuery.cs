@@ -2,10 +2,9 @@
 using Enexure.MicroBus;
 using Parking.Domain;
 
-namespace Parking.MicroBus.Query.ParseCarParksFromData
+namespace Parking.MicroBus.Query.ParseCarParksFromData;
+
+internal sealed class ParseCarParksFromDataQuery(string data) : IQuery<ParseCarParksFromDataQuery, IEnumerable<CarPark>>
 {
-    internal sealed class ParseCarParksFromDataQuery(string data) : IQuery<ParseCarParksFromDataQuery, IEnumerable<CarPark>>
-    {
-        public string Data { get; } = data;
-    }
+    public string Data { get; } = data;
 }

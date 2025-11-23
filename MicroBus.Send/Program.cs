@@ -9,24 +9,23 @@ using Parking.MicroBus.Send.Information;
 using Parking.MicroBus.Send.ParseCarParksFromData;
 using Parking.MicroBus.Send.SendOutput;
 
-namespace Parking.MicroBus.Send
+namespace Parking.MicroBus.Send;
+
+internal static class Program
 {
-    internal static class Program
+    internal static async Task Main()
     {
-        internal static async Task Main()
-        {
-            var busBuilder = new BusBuilder()
-                .RegisterCommandHandler<InformationCommand, InformationCommandHandler>()
-                .RegisterCommandHandler<FetchDataFromUrlCommand, FetchDataFromUrlCommandHandler>()
-                .RegisterCommandHandler<ParseCarParksFromDataCommand, ParseCarParksFromDataCommandHandler>()
-                .RegisterCommandHandler<BestMatchCarParkCommand, BestMatchCarParkCommandHandler>()
-                .RegisterCommandHandler<CarParkToOutputCommand, CarParkToOutputCommandHandler>()
-                .RegisterCommandHandler<SendOutputCommand, SendOutputCommandHandler>();
+        var busBuilder = new BusBuilder()
+            .RegisterCommandHandler<InformationCommand, InformationCommandHandler>()
+            .RegisterCommandHandler<FetchDataFromUrlCommand, FetchDataFromUrlCommandHandler>()
+            .RegisterCommandHandler<ParseCarParksFromDataCommand, ParseCarParksFromDataCommandHandler>()
+            .RegisterCommandHandler<BestMatchCarParkCommand, BestMatchCarParkCommandHandler>()
+            .RegisterCommandHandler<CarParkToOutputCommand, CarParkToOutputCommandHandler>()
+            .RegisterCommandHandler<SendOutputCommand, SendOutputCommandHandler>();
 
-            var container = new ContainerBuilder().RegisterMicroBus(busBuilder).Build();
-            var microBus = container.Resolve<IMicroBus>();
+        var container = new ContainerBuilder().RegisterMicroBus(busBuilder).Build();
+        var microBus = container.Resolve<IMicroBus>();
 
-            await microBus.SendAsync(new InformationCommand());
-        }
+        await microBus.SendAsync(new InformationCommand());
     }
 }

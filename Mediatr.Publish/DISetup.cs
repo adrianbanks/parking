@@ -8,48 +8,47 @@ using Parking.Mediatr.Publish.Information;
 using Parking.Mediatr.Publish.ParseCarParksFromData;
 using Parking.Mediatr.Publish.SendOutput;
 
-namespace Parking.Mediatr.Publish
-{
-    internal sealed class DiSetup
-    {
-        public IMediator Mediator { get; set; }
+namespace Parking.Mediatr.Publish;
 
-        internal object CreateInstance(Type type)
+internal sealed class DiSetup
+{
+    public IMediator Mediator { get; set; }
+
+    internal object CreateInstance(Type type)
+    {
+        return null;
+    }
+
+    internal IEnumerable<object> CreateAllInstances(Type type)
+    {
+        if (type == typeof(INotificationHandler<InformationNotification>))
         {
-            return null;
+            yield return new InformationNotificationHandler(Mediator);
         }
 
-        internal IEnumerable<object> CreateAllInstances(Type type)
+        if (type == typeof(INotificationHandler<FetchDataFromUrlNotification>))
         {
-            if (type == typeof(INotificationHandler<InformationNotification>))
-            {
-                yield return new InformationNotificationHandler(Mediator);
-            }
+            yield return new FetchDataFromUrlNotificationHandler(Mediator);
+        }
 
-            if (type == typeof(INotificationHandler<FetchDataFromUrlNotification>))
-            {
-                yield return new FetchDataFromUrlNotificationHandler(Mediator);
-            }
+        if (type == typeof(INotificationHandler<ParseCarParksFromDataNotification>))
+        {
+            yield return new ParseCarParksFromDataNotificationHandler(Mediator);
+        }
 
-            if (type == typeof(INotificationHandler<ParseCarParksFromDataNotification>))
-            {
-                yield return new ParseCarParksFromDataNotificationHandler(Mediator);
-            }
+        if (type == typeof(INotificationHandler<BestMatchCarParkNotification>))
+        {
+            yield return new BestMatchCarParkNotificationHandler(Mediator);
+        }
 
-            if (type == typeof(INotificationHandler<BestMatchCarParkNotification>))
-            {
-                yield return new BestMatchCarParkNotificationHandler(Mediator);
-            }
+        if (type == typeof(INotificationHandler<CarParkToOutputNotification>))
+        {
+            yield return new CarParkToOutputNotificationHandler(Mediator);
+        }
 
-            if (type == typeof(INotificationHandler<CarParkToOutputNotification>))
-            {
-                yield return new CarParkToOutputNotificationHandler(Mediator);
-            }
-
-            if (type == typeof(INotificationHandler<SendOutputNotification>))
-            {
-                yield return new SendOutputNotificationHandler();
-            }
+        if (type == typeof(INotificationHandler<SendOutputNotification>))
+        {
+            yield return new SendOutputNotificationHandler();
         }
     }
 }

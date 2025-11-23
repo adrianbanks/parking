@@ -1,9 +1,8 @@
 ﻿using MediatR;
 
-namespace Parking.Mediatr.Publish.ParseCarParksFromData
+namespace Parking.Mediatr.Publish.ParseCarParksFromData;
+
+internal sealed class ParseCarParksFromDataNotification(string data) : INotification
 {
-    internal sealed class ParseCarParksFromDataNotification(string data) : INotification
-    {
-        public string Data { get; } = data;
-    }
+    public string Data { get; } = data;
 }

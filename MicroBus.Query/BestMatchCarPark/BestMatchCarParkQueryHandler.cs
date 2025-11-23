@@ -2,14 +2,13 @@
 using Enexure.MicroBus;
 using Parking.Domain;
 
-namespace Parking.MicroBus.Query.BestMatchCarPark
+namespace Parking.MicroBus.Query.BestMatchCarPark;
+
+internal sealed class BestMatchCarParkQueryHandler : IQueryHandler<BestMatchCarParkQuery, CarPark>
 {
-    internal sealed class BestMatchCarParkQueryHandler : IQueryHandler<BestMatchCarParkQuery, CarPark>
+    public async Task<CarPark> Handle(BestMatchCarParkQuery query)
     {
-        public async Task<CarPark> Handle(BestMatchCarParkQuery query)
-        {
-            var bestCarPark = BestMatchCalculator.CalculateBestMatch(query.CarParks);
-            return await Task.FromResult(bestCarPark);
-        }
+        var bestCarPark = BestMatchCalculator.CalculateBestMatch(query.CarParks);
+        return await Task.FromResult(bestCarPark);
     }
 }

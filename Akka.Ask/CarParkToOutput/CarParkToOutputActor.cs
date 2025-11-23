@@ -1,17 +1,16 @@
 ﻿using Akka.Actor;
 using Parking.Domain;
 
-namespace Parking.Akka.Ask.CarParkToOutput
+namespace Parking.Akka.Ask.CarParkToOutput;
+
+internal sealed class CarParkToOutputActor : ReceiveActor
 {
-    internal sealed class CarParkToOutputActor : ReceiveActor
+    public CarParkToOutputActor()
     {
-        public CarParkToOutputActor()
+        Receive<CarParkToOutputMessage>(message =>
         {
-            Receive<CarParkToOutputMessage>(message =>
-            {
-                var output = CarParkOutputFormatter.Format(message.CarPark);
-                Sender.Tell(output);
-            });
-        }
+            var output = CarParkOutputFormatter.Format(message.CarPark);
+            Sender.Tell(output);
+        });
     }
 }

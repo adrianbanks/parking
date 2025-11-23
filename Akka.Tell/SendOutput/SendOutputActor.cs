@@ -1,17 +1,16 @@
 ﻿using System;
 using Akka.Actor;
 
-namespace Parking.Akka.Tell.SendOutput
+namespace Parking.Akka.Tell.SendOutput;
+
+internal sealed class SendOutputActor : ReceiveActor
 {
-    internal sealed class SendOutputActor : ReceiveActor
+    public SendOutputActor()
     {
-        public SendOutputActor()
+        Receive<SendOutputMessage>(message =>
         {
-            Receive<SendOutputMessage>(message =>
-            {
-                Console.WriteLine(message.Output);
-                Context.System.Terminate();
-            });
-        }
+            Console.WriteLine(message.Output);
+            Context.System.Terminate();
+        });
     }
 }

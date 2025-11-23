@@ -1,14 +1,13 @@
 ﻿using System;
 using MediatR;
 
-namespace Parking.Mediatr.Publish.SendOutput
+namespace Parking.Mediatr.Publish.SendOutput;
+
+internal sealed class SendOutputNotificationHandler : NotificationHandler<SendOutputNotification>
 {
-    internal sealed class SendOutputNotificationHandler : NotificationHandler<SendOutputNotification>
+    protected override void HandleCore(SendOutputNotification notification)
     {
-        protected override void HandleCore(SendOutputNotification notification)
-        {
-            Console.WriteLine(notification.Output);
-            Environment.Exit(0);
-        }
+        Console.WriteLine(notification.Output);
+        Environment.Exit(0);
     }
 }

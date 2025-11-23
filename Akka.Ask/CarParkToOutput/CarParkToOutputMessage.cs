@@ -1,9 +1,8 @@
 ﻿using Parking.Domain;
 
-namespace Parking.Akka.Ask.CarParkToOutput
+namespace Parking.Akka.Ask.CarParkToOutput;
+
+internal sealed class CarParkToOutputMessage(CarPark carPark)
 {
-    internal sealed class CarParkToOutputMessage(CarPark carPark)
-    {
-        public CarPark CarPark { get; } = carPark;
-    }
+    public CarPark CarPark { get; } = carPark;
 }

@@ -11,24 +11,23 @@ using Parking.MicroBus.Query.FetchDataFromUrl;
 using Parking.MicroBus.Query.Information;
 using Parking.MicroBus.Query.ParseCarParksFromData;
 
-namespace Parking.MicroBus.Query
+namespace Parking.MicroBus.Query;
+
+internal static class Program
 {
-    internal static class Program
+    internal static async Task Main()
     {
-        internal static async Task Main()
-        {
-            var busBuilder = new BusBuilder()
-                .RegisterQueryHandler<InformationQuery, string, InformationQueryHandler>()
-                .RegisterQueryHandler<FetchDataFromUrlQuery, string, FetchDataFromUrlQueryHandler>()
-                .RegisterQueryHandler<ParseCarParksFromDataQuery, IEnumerable<CarPark>, ParseCarParksFromDataQueryHandler>()
-                .RegisterQueryHandler<BestMatchCarParkQuery, CarPark, BestMatchCarParkQueryHandler>()
-                .RegisterQueryHandler<CarParkToOutputQuery, string, CarParkToOutputQueryHandler>();
+        var busBuilder = new BusBuilder()
+            .RegisterQueryHandler<InformationQuery, string, InformationQueryHandler>()
+            .RegisterQueryHandler<FetchDataFromUrlQuery, string, FetchDataFromUrlQueryHandler>()
+            .RegisterQueryHandler<ParseCarParksFromDataQuery, IEnumerable<CarPark>, ParseCarParksFromDataQueryHandler>()
+            .RegisterQueryHandler<BestMatchCarParkQuery, CarPark, BestMatchCarParkQueryHandler>()
+            .RegisterQueryHandler<CarParkToOutputQuery, string, CarParkToOutputQueryHandler>();
 
-            var container = new ContainerBuilder().RegisterMicroBus(busBuilder).Build();
-            var microBus = container.Resolve<IMicroBus>();
+        var container = new ContainerBuilder().RegisterMicroBus(busBuilder).Build();
+        var microBus = container.Resolve<IMicroBus>();
 
-            var output = await microBus.QueryAsync(new InformationQuery());
-            Console.WriteLine(output);
-        }
+        var output = await microBus.QueryAsync(new InformationQuery());
+        Console.WriteLine(output);
     }
 }

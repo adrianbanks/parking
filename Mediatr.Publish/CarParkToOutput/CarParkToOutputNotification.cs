@@ -1,10 +1,9 @@
 ﻿using MediatR;
 using Parking.Domain;
 
-namespace Parking.Mediatr.Publish.CarParkToOutput
+namespace Parking.Mediatr.Publish.CarParkToOutput;
+
+internal sealed class CarParkToOutputNotification(CarPark carPark) : INotification
 {
-    internal sealed class CarParkToOutputNotification(CarPark carPark) : INotification
-    {
-        public CarPark CarPark { get; } = carPark;
-    }
+    public CarPark CarPark { get; } = carPark;
 }

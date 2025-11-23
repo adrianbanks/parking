@@ -1,9 +1,8 @@
 ﻿using Enexure.MicroBus;
 
-namespace Parking.MicroBus.Send.FetchDataFromUrl
+namespace Parking.MicroBus.Send.FetchDataFromUrl;
+
+internal sealed class FetchDataFromUrlCommand(string url) : ICommand
 {
-    internal sealed class FetchDataFromUrlCommand(string url) : ICommand
-    {
-        public string Url { get; } = url;
-    }
+    public string Url { get; } = url;
 }

@@ -1,17 +1,16 @@
 ﻿using Akka.Actor;
 using Parking.Domain;
 
-namespace Parking.Akka.Ask.BestMatchCarPark
+namespace Parking.Akka.Ask.BestMatchCarPark;
+
+internal sealed class BestMatchCarParkActor : ReceiveActor
 {
-    internal sealed class BestMatchCarParkActor : ReceiveActor
+    public BestMatchCarParkActor()
     {
-        public BestMatchCarParkActor()
+        Receive<BestMatchCarParkMessage>(message =>
         {
-            Receive<BestMatchCarParkMessage>(message =>
-            {
-                var bestCarPark = BestMatchCalculator.CalculateBestMatch(message.CarParks);
-                Sender.Tell(bestCarPark);
-            });
-        }
+            var bestCarPark = BestMatchCalculator.CalculateBestMatch(message.CarParks);
+            Sender.Tell(bestCarPark);
+        });
     }
 }
