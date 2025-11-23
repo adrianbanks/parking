@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Parking.Brighter.Darker</AssemblyName>
+    <RootNamespace>Parking.Brighter.Darker</RootNamespace>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Paramore.Darker" Version="4.1.1" />
+    <PackageReference Include="Paramore.Darker.AspNetCore" Version="4.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Parking.Domain\Parking.Domain.csproj" />
+  </ItemGroup>
+</Project>
