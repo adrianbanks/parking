@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Paramore.Brighter;
+using Paramore.Brighter.Extensions.DependencyInjection;
 using Parking.Brighter.BestMatchCarPark;
 using Parking.Brighter.CarParkToOutput;
 using Parking.Brighter.FetchDataFromUrl;
@@ -13,26 +16,21 @@ internal static class Program
 {
     internal static async Task Main()
     {
-        var registry = new SubscriberRegistry();
-        var handlerConfiguration = new HandlerConfiguration(registry, new SimpleHandlerFactory());
-        var builder = CommandProcessorBuilder.With()
-            .Handlers(handlerConfiguration)
-            .DefaultPolicy()
-            .NoTaskQueues()
-            .RequestContextFactory(new InMemoryRequestContextFactory());
+        var host = new HostBuilder()
+            .ConfigureServices((_, collection) =>
+            {
+                collection.AddBrighter()
+                    .UseInMemoryOutbox()
+                    .AutoFromAssemblies(typeof(Program).Assembly);
+            })
+            .Build();
 
-        registry.RegisterAsync<InformationCommand, InformationCommandHandler>();
-        registry.RegisterAsync<FetchDataFromUrlCommand, FetchDataFromUrlRequestHandler>();
-        registry.RegisterAsync<ParseCarParksFromDataCommand, ParseCarParksFromDataCommandHandler>();
-        registry.RegisterAsync<BestMatchCarParkCommand, BestMatchCarParkCommandHandler>();
-        registry.RegisterAsync<CarParkToOutputCommand, CarParkToOutputCommandHandler>();
-
-        var commandProcessor = builder.Build();
+        var commandProcessor = host.Services.GetService<IAmACommandProcessor>();
 
         await Run(commandProcessor);
     }
 
-    private static async Task Run(CommandProcessor commandProcessor)
+    private static async Task Run(IAmACommandProcessor commandProcessor)
     {
         var informationCommand = new InformationCommand();
         await commandProcessor.SendAsync(informationCommand);
