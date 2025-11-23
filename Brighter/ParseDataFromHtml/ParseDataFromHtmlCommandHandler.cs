@@ -9,7 +9,7 @@ namespace Parking.Brighter.ParseDataFromHtml
     {
         public override async Task<ParseDataFromHtmlCommand> HandleAsync(ParseDataFromHtmlCommand command, CancellationToken cancellationToken = new CancellationToken())
         {
-            var carParks = CarParkParser.ParseFromHtml(command.Html);
+            var carParks = CarParkParser.Parse(command.Html);
             command.CarParks = carParks;
             return await base.HandleAsync(command, cancellationToken);
         }

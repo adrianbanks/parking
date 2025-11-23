@@ -12,7 +12,7 @@ namespace Parking.Mediatr.Publish.ParseDataFromHtml
 
         protected override async void HandleCore(ParseDataFromHtmlNotification notification)
         {
-            var carParks = CarParkParser.ParseFromHtml(notification.Html);
+            var carParks = CarParkParser.Parse(notification.Html);
             await mediator.Publish(new BestMatchCarParkNotification(carParks));
         }
     }

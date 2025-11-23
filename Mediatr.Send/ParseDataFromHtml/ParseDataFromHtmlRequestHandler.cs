@@ -9,7 +9,7 @@ namespace Parking.Mediatr.Send.ParseDataFromHtml
     {
         protected override Task<IEnumerable<CarPark>> HandleCore(ParseDataFromHtmlRequest request)
         {
-            var carParks = CarParkParser.ParseFromHtml(request.Html);
+            var carParks = CarParkParser.Parse(request.Html);
             return Task.FromResult(carParks);
         }
     }

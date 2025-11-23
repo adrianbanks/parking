@@ -9,7 +9,7 @@ namespace Parking.Akka.Ask.ParseDataFromHtml
         {
             Receive<ParseDataFromHtmlMessage>(message =>
             {
-                var carParks = CarParkParser.ParseFromHtml(message.Html);
+                var carParks = CarParkParser.Parse(message.Html);
                 Sender.Tell(carParks);
             });
         }

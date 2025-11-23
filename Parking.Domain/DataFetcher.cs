@@ -1,6 +1,5 @@
-﻿using System;
-using System.Net;
-using System.Net.Http;
+﻿using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace Parking.Domain
@@ -9,18 +8,14 @@ namespace Parking.Domain
     {
         public static async Task<string> FetchData(string url)
         {
-            const string userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36";
+            using var httpClient = new HttpClient();
 
-            var cookieContainer = new CookieContainer();
-            cookieContainer.Add(new Cookie("Accept", "*/*", "/", new Uri(url).Host));
+            var body = new StringContent(
+                """["Grafton East","Grafton West","Grand Arcade","Park Street","Queen Anne"]""",
+                new MediaTypeHeaderValue("application/json"));
 
-            using (var handler = new HttpClientHandler { CookieContainer = cookieContainer })
-            using (var httpClient = new HttpClient(handler))
-            {
-                httpClient.DefaultRequestHeaders.Add("User-Agent", userAgent);
-                var response = await httpClient.GetAsync(url);
-                return await response.Content.ReadAsStringAsync();
-            }
+            var response = await httpClient.PostAsync(url, body);
+            return await response.Content.ReadAsStringAsync();
         }
     }
 }
