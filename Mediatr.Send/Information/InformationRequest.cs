@@ -2,6 +2,5 @@
 
 namespace Parking.Mediatr.Send.Information
 {
-    internal sealed class InformationRequest : IRequest<string>
-    { }
+    internal sealed class InformationRequest : IRequest<string>;
 }

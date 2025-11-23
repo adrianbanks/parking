@@ -2,6 +2,5 @@
 
 namespace Parking.Mediatr.Publish.Information
 {
-    internal sealed class InformationNotification : INotification
-    { }
+    internal sealed class InformationNotification : INotification;
 }

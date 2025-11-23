@@ -2,6 +2,5 @@
 
 namespace Parking.MicroBus.Send.Information
 {
-    internal sealed class InformationCommand : ICommand
-    { }
+    internal sealed class InformationCommand : ICommand;
 }
