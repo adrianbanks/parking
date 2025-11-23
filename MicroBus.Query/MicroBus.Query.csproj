@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.8.1" />
-    <PackageReference Include="Enexure.MicroBus" Version="3.6.2" />
-    <PackageReference Include="Enexure.MicroBus.Autofac" Version="3.6.0" />
+    <PackageReference Include="Enexure.MicroBus" Version="3.7.0" />
+    <PackageReference Include="Enexure.MicroBus.Autofac" Version="3.7.0" />
   </ItemGroup>
 </Project>
