@@ -9,8 +9,8 @@ namespace Parking.MicroBus.Send.FetchDataFromUrl
     {
         public async Task Handle(FetchDataFromUrlCommand command)
         {
-            var html = await DataFetcher.FetchData(command.Url);
-            await bus.SendAsync(new ParseCarParksFromDataCommand(html));
+            var data = await DataFetcher.FetchData(command.Url);
+            await bus.SendAsync(new ParseCarParksFromDataCommand(data));
         }
     }
 }

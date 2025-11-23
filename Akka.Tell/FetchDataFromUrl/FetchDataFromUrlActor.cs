@@ -12,8 +12,8 @@ namespace Parking.Akka.Tell.FetchDataFromUrl
 
             Receive<FetchDataFromUrlMessage>(async message =>
             {
-                var html = await DataFetcher.FetchData(message.Url);
-                parseDataActor.Tell(new ParseCarParksFromDataMessage(html));
+                var data = await DataFetcher.FetchData(message.Url);
+                parseDataActor.Tell(new ParseCarParksFromDataMessage(data));
             });
         }
     }

@@ -8,8 +8,8 @@ namespace Parking.MicroBus.Query.FetchDataFromUrl
     {
         public async Task<string> Handle(FetchDataFromUrlQuery query)
         {
-            var html = await DataFetcher.FetchData(query.Url);
-            return await Task.FromResult(html);
+            var data = await DataFetcher.FetchData(query.Url);
+            return await Task.FromResult(data);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Parking.MicroBus.Send.ParseCarParksFromData
     {
         public async Task Handle(ParseCarParksFromDataCommand command)
         {
-            var carParks = CarParkParser.Parse(command.Html);
+            var carParks = CarParkParser.Parse(command.Data);
             await bus.SendAsync(new BestMatchCarParkCommand(carParks));
         }
     }

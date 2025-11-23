@@ -7,6 +7,6 @@ namespace Parking.Brighter.FetchDataFromUrl
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public string Url { get; } = url;
-        public string Html { get; set; }
+        public string Data { get; set; }
     }
 }

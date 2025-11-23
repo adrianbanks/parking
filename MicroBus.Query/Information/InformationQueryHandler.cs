@@ -12,8 +12,8 @@ namespace Parking.MicroBus.Query.Information
     {
         public async Task<string> Handle(InformationQuery query)
         {
-            var html = await bus.QueryAsync(new FetchDataFromUrlQuery(SourceData.Url));
-            var carParkData = await bus.QueryAsync(new ParseCarParksFromDataQuery(html));
+            var data = await bus.QueryAsync(new FetchDataFromUrlQuery(SourceData.Url));
+            var carParkData = await bus.QueryAsync(new ParseCarParksFromDataQuery(data));
             var bestCarPark = await bus.QueryAsync(new BestMatchCarParkQuery(carParkData));
             return await bus.QueryAsync(new CarParkToOutputQuery(bestCarPark));
         }

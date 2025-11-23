@@ -19,8 +19,8 @@ namespace Parking.Akka.Ask.Information
 
             ReceiveAsync<InformationMessage>(async _ =>
             {
-                var html = await fetchDataActor.Ask<string>(new FetchDataFromUrlMessage(SourceData.Url));
-                var carParkData = await parseDataActor.Ask<IEnumerable<CarPark>>(new ParseCarParksFromDataMessage(html));
+                var data = await fetchDataActor.Ask<string>(new FetchDataFromUrlMessage(SourceData.Url));
+                var carParkData = await parseDataActor.Ask<IEnumerable<CarPark>>(new ParseCarParksFromDataMessage(data));
                 var bestCarPark = await bestMatchActor.Ask<CarPark>(new BestMatchCarParkMessage(carParkData));
                 var output = await outputActor.Ask<string>(new CarParkToOutputMessage(bestCarPark));
 

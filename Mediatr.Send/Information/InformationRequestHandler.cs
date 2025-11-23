@@ -12,8 +12,8 @@ namespace Parking.Mediatr.Send.Information
     {
         protected override async Task<string> HandleCore(InformationRequest request)
         {
-            var html = await mediator.Send(new FetchDataFromUrlRequest(SourceData.Url));
-            var carParkData = await mediator.Send(new ParseCarParksFromDataRequest(html));
+            var data = await mediator.Send(new FetchDataFromUrlRequest(SourceData.Url));
+            var carParkData = await mediator.Send(new ParseCarParksFromDataRequest(data));
             var bestCarPark = await mediator.Send(new BestMatchCarParkRequest(carParkData));
             return await mediator.Send(new CarParkToOutputRequest(bestCarPark));
         }

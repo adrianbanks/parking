@@ -2,8 +2,8 @@
 
 namespace Parking.MicroBus.Send.ParseCarParksFromData
 {
-    internal sealed class ParseCarParksFromDataCommand(string html) : ICommand
+    internal sealed class ParseCarParksFromDataCommand(string data) : ICommand
     {
-        public string Html { get; } = html;
+        public string Data { get; } = data;
     }
 }

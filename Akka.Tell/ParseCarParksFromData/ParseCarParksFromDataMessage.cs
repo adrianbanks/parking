@@ -1,7 +1,7 @@
 ﻿namespace Parking.Akka.Tell.ParseCarParksFromData
 {
-    internal sealed class ParseCarParksFromDataMessage(string html)
+    internal sealed class ParseCarParksFromDataMessage(string data)
     {
-        public string Html { get; } = html;
+        public string Data { get; } = data;
     }
 }

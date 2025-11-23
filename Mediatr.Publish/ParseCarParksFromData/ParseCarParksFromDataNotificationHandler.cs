@@ -8,7 +8,7 @@ namespace Parking.Mediatr.Publish.ParseCarParksFromData
     {
         protected override async void HandleCore(ParseCarParksFromDataNotification notification)
         {
-            var carParks = CarParkParser.Parse(notification.Html);
+            var carParks = CarParkParser.Parse(notification.Data);
             await mediator.Publish(new BestMatchCarParkNotification(carParks));
         }
     }

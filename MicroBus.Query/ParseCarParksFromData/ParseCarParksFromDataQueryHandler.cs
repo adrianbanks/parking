@@ -9,7 +9,7 @@ namespace Parking.MicroBus.Query.ParseCarParksFromData
     {
         public async Task<IEnumerable<CarPark>> Handle(ParseCarParksFromDataQuery query)
         {
-            var carParks = CarParkParser.Parse(query.Html);
+            var carParks = CarParkParser.Parse(query.Data);
             return await Task.FromResult(carParks);
         }
     }

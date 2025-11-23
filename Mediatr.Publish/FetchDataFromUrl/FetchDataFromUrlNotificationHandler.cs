@@ -8,8 +8,8 @@ namespace Parking.Mediatr.Publish.FetchDataFromUrl
     {
         protected override async void HandleCore(FetchDataFromUrlNotification notification)
         {
-            var html = await DataFetcher.FetchData(notification.Url);
-            await mediator.Publish(new ParseCarParksFromDataNotification(html));
+            var data = await DataFetcher.FetchData(notification.Url);
+            await mediator.Publish(new ParseCarParksFromDataNotification(data));
         }
     }
 }

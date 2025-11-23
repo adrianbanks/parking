@@ -40,7 +40,7 @@ namespace Parking.Brighter
             var fetchDataFromUrlCommand = new FetchDataFromUrlCommand(informationCommand.Url);
             await commandProcessor.SendAsync(fetchDataFromUrlCommand);
 
-            var parseCarParksFromDataCommand = new ParseCarParksFromDataCommand(fetchDataFromUrlCommand.Html);
+            var parseCarParksFromDataCommand = new ParseCarParksFromDataCommand(fetchDataFromUrlCommand.Data);
             await commandProcessor.SendAsync(parseCarParksFromDataCommand);
 
             var bestMatchCarParkCommand = new BestMatchCarParkCommand(parseCarParksFromDataCommand.CarParks);

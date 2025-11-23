@@ -9,8 +9,7 @@ namespace Parking.Brighter.FetchDataFromUrl
     {
         public override async Task<FetchDataFromUrlCommand> HandleAsync(FetchDataFromUrlCommand command, CancellationToken cancellationToken = new CancellationToken())
         {
-            var html = await DataFetcher.FetchData(command.Url);
-            command.Html = html;
+            command.Data = await DataFetcher.FetchData(command.Url);
             return await base.HandleAsync(command, cancellationToken);
         }
     }

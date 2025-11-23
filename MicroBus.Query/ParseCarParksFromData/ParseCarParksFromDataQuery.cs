@@ -4,8 +4,8 @@ using Parking.Domain;
 
 namespace Parking.MicroBus.Query.ParseCarParksFromData
 {
-    internal sealed class ParseCarParksFromDataQuery(string html) : IQuery<ParseCarParksFromDataQuery, IEnumerable<CarPark>>
+    internal sealed class ParseCarParksFromDataQuery(string data) : IQuery<ParseCarParksFromDataQuery, IEnumerable<CarPark>>
     {
-        public string Html { get; } = html;
+        public string Data { get; } = data;
     }
 }

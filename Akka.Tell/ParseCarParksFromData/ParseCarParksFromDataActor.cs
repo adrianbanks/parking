@@ -12,7 +12,7 @@ namespace Parking.Akka.Tell.ParseCarParksFromData
 
             Receive<ParseCarParksFromDataMessage>(message =>
             {
-                var carParks = CarParkParser.Parse(message.Html);
+                var carParks = CarParkParser.Parse(message.Data);
                 bestMatchActor.Tell(new BestMatchCarParkMessage(carParks));
             });
         }
