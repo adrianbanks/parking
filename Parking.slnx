@@ -7,8 +7,8 @@
     <Project Path="Akka.Tell/Akka.Tell.csproj" />
   </Folder>
   <Folder Name="/Brighter/">
-    <Project Path="Brighter/Brighter.Brighter/Brighter.Brighter.csproj" />
-    <Project Path="Brighter/Brighter.Darker/Brighter.Darker.csproj" />
+    <Project Path="Brighter.Brighter/Brighter.Brighter.csproj" />
+    <Project Path="Brighter.Darker/Brighter.Darker.csproj" />
   </Folder>
   <Folder Name="/Mediatr/">
     <Project Path="Mediatr.Publish/Mediatr.Publish.csproj" />
