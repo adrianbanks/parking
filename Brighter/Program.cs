@@ -19,9 +19,7 @@ internal static class Program
         var host = new HostBuilder()
             .ConfigureServices((_, collection) =>
             {
-                collection.AddBrighter()
-                    .UseInMemoryOutbox()
-                    .AutoFromAssemblies(typeof(Program).Assembly);
+                collection.AddBrighter().AutoFromAssemblies();
             })
             .Build();
 
