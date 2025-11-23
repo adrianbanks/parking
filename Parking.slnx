@@ -1,0 +1,20 @@
+<Solution>
+  <Folder Name="/.Other Files/">
+    <File Path="Directory.Build.props" />
+  </Folder>
+  <Folder Name="/Akka/">
+    <Project Path="Akka.Ask/Akka.Ask.csproj" />
+    <Project Path="Akka.Tell/Akka.Tell.csproj" />
+  </Folder>
+  <Folder Name="/Mediatr/">
+    <Project Path="Mediatr.Publish/Mediatr.Publish.csproj" />
+    <Project Path="Mediatr.Send/Mediatr.Send.csproj" />
+  </Folder>
+  <Folder Name="/MicroBus/">
+    <Project Path="MicroBus.Query/MicroBus.Query.csproj" />
+    <Project Path="MicroBus.Send/MicroBus.Send.csproj" />
+  </Folder>
+  <Project Path="Brighter/Brighter.csproj" />
+  <Project Path="NoFramework/NoFramework.csproj" />
+  <Project Path="Parking.Domain/Parking.Domain.csproj" />
+</Solution>
