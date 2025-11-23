@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using MediatR;
 using Parking.Domain;
 using Parking.Mediatr.Send.BestMatchCarPark;
@@ -8,13 +9,13 @@ using Parking.Mediatr.Send.ParseCarParksFromData;
 
 namespace Parking.Mediatr.Send.Information;
 
-internal sealed class InformationRequestHandler(IMediator mediator) : AsyncRequestHandler<InformationRequest, string>
+internal sealed class InformationRequestHandler(IMediator mediator) : IRequestHandler<InformationRequest, string>
 {
-    protected override async Task<string> HandleCore(InformationRequest request)
+    public async Task<string> Handle(InformationRequest request, CancellationToken cancellationToken)
     {
-        var data = await mediator.Send(new FetchDataFromUrlRequest(SourceData.Url));
-        var carParkData = await mediator.Send(new ParseCarParksFromDataRequest(data));
-        var bestCarPark = await mediator.Send(new BestMatchCarParkRequest(carParkData));
-        return await mediator.Send(new CarParkToOutputRequest(bestCarPark));
+        var data = await mediator.Send(new FetchDataFromUrlRequest(SourceData.Url), cancellationToken);
+        var carParkData = await mediator.Send(new ParseCarParksFromDataRequest(data), cancellationToken);
+        var bestCarPark = await mediator.Send(new BestMatchCarParkRequest(carParkData), cancellationToken);
+        return await mediator.Send(new CarParkToOutputRequest(bestCarPark), cancellationToken);
     }
 }

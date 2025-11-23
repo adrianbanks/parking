@@ -1,12 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using MediatR;
 using Parking.Domain;
 
 namespace Parking.Mediatr.Send.FetchDataFromUrl;
 
-internal sealed class FetchDataFromUrlRequestHandler : AsyncRequestHandler<FetchDataFromUrlRequest, string>
+internal sealed class FetchDataFromUrlRequestHandler : IRequestHandler<FetchDataFromUrlRequest, string>
 {
-    protected override async Task<string> HandleCore(FetchDataFromUrlRequest request)
+    public async Task<string> Handle(FetchDataFromUrlRequest request, CancellationToken cancellationToken)
     {
         return await DataFetcher.FetchData(request.Url);
     }

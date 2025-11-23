@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using MediatR;
 
 namespace Parking.Mediatr.Publish.SendOutput;
 
-internal sealed class SendOutputNotificationHandler : NotificationHandler<SendOutputNotification>
+internal sealed class SendOutputNotificationHandler : INotificationHandler<SendOutputNotification>
 {
-    protected override void HandleCore(SendOutputNotification notification)
+    public Task Handle(SendOutputNotification notification, CancellationToken cancellationToken)
     {
         Console.WriteLine(notification.Output);
         Environment.Exit(0);
+        return Task.CompletedTask;
     }
 }

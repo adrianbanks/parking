@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Parking.Domain;
 
 namespace Parking.Mediatr.Send.ParseCarParksFromData;
 
-internal sealed class ParseCarParksFromDataRequestHandler : AsyncRequestHandler<ParseCarParksFromDataRequest, IEnumerable<CarPark>>
+internal sealed class ParseCarParksFromDataRequestHandler : IRequestHandler<ParseCarParksFromDataRequest, IEnumerable<CarPark>>
 {
-    protected override Task<IEnumerable<CarPark>> HandleCore(ParseCarParksFromDataRequest request)
+    public Task<IEnumerable<CarPark>> Handle(ParseCarParksFromDataRequest request, CancellationToken cancellationToken)
     {
         var carParks = CarParkParser.Parse(request.Data);
         return Task.FromResult(carParks);
