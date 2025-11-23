@@ -10,8 +10,8 @@ internal static class Program
     {
         var data = await DataFetcher.FetchData(SourceData.Url);
         var carParks = CarParkParser.Parse(data);
-        var bestMatch = BestMatchCalculator.CalculateBestMatch(carParks);
-        var output = CarParkOutputFormatter.Format(bestMatch);
+        var bestCarPark = BestMatchCalculator.CalculateBestMatch(carParks);
+        var output = CarParkOutputFormatter.Format(bestCarPark);
         Console.WriteLine(output);
     }
 }
