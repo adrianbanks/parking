@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/.Other Files/">
     <File Path="Directory.Build.props" />
+    <File Path="README.md" />
   </Folder>
   <Folder Name="/Akka/">
     <Project Path="Akka.Ask/Akka.Ask.csproj" />
