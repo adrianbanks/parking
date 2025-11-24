@@ -18,6 +18,9 @@
     <Project Path="MicroBus.Query/MicroBus.Query.csproj" />
     <Project Path="MicroBus.Send/MicroBus.Send.csproj" />
   </Folder>
+  <Folder Name="/Shiny/">
+    <Project Path="Shiny.Request/Shiny.Request.csproj" />
+  </Folder>
   <Project Path="NoFramework/NoFramework.csproj" />
   <Project Path="Parking.Domain/Parking.Domain.csproj" />
 </Solution>
