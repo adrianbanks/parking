@@ -20,6 +20,7 @@
   </Folder>
   <Folder Name="/Shiny/">
     <Project Path="Shiny.Request/Shiny.Request.csproj" />
+    <Project Path="Shiny.Send/Shiny.Send.csproj" />
   </Folder>
   <Project Path="NoFramework/NoFramework.csproj" />
   <Project Path="Parking.Domain/Parking.Domain.csproj" />
