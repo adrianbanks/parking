@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Parking.Mediatr.Publish.Information;
@@ -16,6 +15,5 @@ internal static class Program
         var mediator = provider.GetRequiredService<IMediator>();
 
         await mediator.Publish(new InformationNotification());
-        Console.ReadLine();
     }
 }

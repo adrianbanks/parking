@@ -10,7 +10,6 @@ internal sealed class SendOutputNotificationHandler : INotificationHandler<SendO
     public Task Handle(SendOutputNotification notification, CancellationToken cancellationToken)
     {
         Console.WriteLine(notification.Output);
-        Environment.Exit(0);
         return Task.CompletedTask;
     }
 }

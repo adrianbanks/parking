@@ -9,7 +9,6 @@ internal sealed class SendOutputCommandHandler : ICommandHandler<SendOutputComma
     public Task Handle(SendOutputCommand command)
     {
         Console.WriteLine(command.Output);
-        Environment.Exit(0);
         return Task.CompletedTask;
     }
 }
