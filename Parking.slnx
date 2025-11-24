@@ -19,6 +19,7 @@
     <Project Path="MicroBus.Send/MicroBus.Send.csproj" />
   </Folder>
   <Folder Name="/Shiny/">
+    <Project Path="Shiny.Publish/Shiny.Publish.csproj" />
     <Project Path="Shiny.Request/Shiny.Request.csproj" />
     <Project Path="Shiny.Send/Shiny.Send.csproj" />
   </Folder>
