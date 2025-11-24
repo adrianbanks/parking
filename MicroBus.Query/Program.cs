@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Autofac;
 using Enexure.MicroBus;
-using Enexure.MicroBus.Autofac;
+using Enexure.MicroBus.MicrosoftDependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Parking.Domain;
 using Parking.MicroBus.Query.BestMatchCarPark;
 using Parking.MicroBus.Query.CarParkToOutput;
@@ -24,8 +24,10 @@ internal static class Program
             .RegisterQueryHandler<BestMatchCarParkQuery, CarPark, BestMatchCarParkQueryHandler>()
             .RegisterQueryHandler<CarParkToOutputQuery, string, CarParkToOutputQueryHandler>();
 
-        var container = new ContainerBuilder().RegisterMicroBus(busBuilder).Build();
-        var microBus = container.Resolve<IMicroBus>();
+        var services = new ServiceCollection();
+        services.RegisterMicroBus(busBuilder);
+        var provider = services.BuildServiceProvider();
+        var microBus = provider.GetRequiredService<IMicroBus>();
 
         var output = await microBus.QueryAsync(new InformationQuery());
         Console.WriteLine(output);

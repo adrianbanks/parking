@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using Autofac;
 using Enexure.MicroBus;
-using Enexure.MicroBus.Autofac;
+using Enexure.MicroBus.MicrosoftDependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Parking.MicroBus.Send.BestMatchCarPark;
 using Parking.MicroBus.Send.CarParkToOutput;
 using Parking.MicroBus.Send.FetchDataFromUrl;
@@ -23,8 +23,10 @@ internal static class Program
             .RegisterCommandHandler<CarParkToOutputCommand, CarParkToOutputCommandHandler>()
             .RegisterCommandHandler<SendOutputCommand, SendOutputCommandHandler>();
 
-        var container = new ContainerBuilder().RegisterMicroBus(busBuilder).Build();
-        var microBus = container.Resolve<IMicroBus>();
+        var services = new ServiceCollection();
+        services.RegisterMicroBus(busBuilder);
+        var provider = services.BuildServiceProvider();
+        var microBus = provider.GetRequiredService<IMicroBus>();
 
         await microBus.SendAsync(new InformationCommand());
     }
