@@ -8,12 +8,14 @@ namespace Parking.Domain;
 public static class DataFetcher
 {
     // set to false to fetch real data from the URL
-    private const string UseFakeData = "true";
+    public static bool UseFakeData { get; set; } = true;
+
+    private static string _fakeData;
 
     public static async Task<string> FetchData(string url)
     {
-        return bool.Parse(UseFakeData)
-            ? FakeData()
+        return UseFakeData
+            ? _fakeData ??= new FakeDataCreator().FakeData()
             : await FetchFromUrl(url);
     }
 
@@ -29,55 +31,59 @@ public static class DataFetcher
         return await response.Content.ReadAsStringAsync();
     }
 
-    private static string FakeData()
+    private sealed class FakeDataCreator
     {
-        var graftonEast = CreateRandomFullness(780);
-        var graftonWest = CreateRandomFullness(255);
-        var grandArcade = CreateRandomFullness(900);
-        var parkStreet = CreateRandomFullness(175);
-        var queenAnne = CreateRandomFullness(515);
+        private readonly Random _random = new();
 
-        return $$"""
-                  [
-                    {
-                      "name": "Grafton East",
-                      "totalSpaces": {{graftonEast.TotalSpaces}},
-                      "vacantSpaces": {{graftonEast.VacantSpaces}},
-                      "occupiedPercentage": {{graftonEast.OccupiedPercentage}}
-                    },
-                    {
-                      "name": "Grafton West",
-                      "totalSpaces": {{graftonWest.TotalSpaces}},
-                      "vacantSpaces": {{graftonWest.VacantSpaces}},
-                      "occupiedPercentage": {{graftonWest.OccupiedPercentage}}
-                    },
-                    {
-                      "name": "Grand Arcade",
-                      "totalSpaces": {{grandArcade.TotalSpaces}},
-                      "vacantSpaces": {{grandArcade.VacantSpaces}},
-                      "occupiedPercentage": {{grandArcade.OccupiedPercentage}}
-                    },
-                    {
-                      "name": "Park Street",
-                      "totalSpaces": {{parkStreet.TotalSpaces}},
-                      "vacantSpaces": {{parkStreet.VacantSpaces}},
-                      "occupiedPercentage": {{parkStreet.OccupiedPercentage}}
-                    },
-                    {
-                      "name": "Queen Anne",
-                      "totalSpaces": {{queenAnne.TotalSpaces}},
-                      "vacantSpaces": {{queenAnne.VacantSpaces}},
-                      "occupiedPercentage": {{queenAnne.OccupiedPercentage}}
-                    }
-                  ]
-                  """;
-    }
+        public string FakeData()
+        {
+            var graftonEast = CreateRandomFullness(780);
+            var graftonWest = CreateRandomFullness(255);
+            var grandArcade = CreateRandomFullness(900);
+            var parkStreet = CreateRandomFullness(175);
+            var queenAnne = CreateRandomFullness(515);
 
-    private static (int TotalSpaces, int VacantSpaces, int OccupiedPercentage) CreateRandomFullness(int totalSpaces)
-    {
-        var random = new Random();
-        var vacantSpaces = totalSpaces - random.Next(1, totalSpaces);
-        var percentageFull = Convert.ToInt32((double) (totalSpaces - vacantSpaces) / totalSpaces * 100);
-        return (totalSpaces, vacantSpaces, percentageFull);
+            return $$"""
+                     [
+                       {
+                         "name": "Grafton East",
+                         "totalSpaces": {{graftonEast.TotalSpaces}},
+                         "vacantSpaces": {{graftonEast.VacantSpaces}},
+                         "occupiedPercentage": {{graftonEast.OccupiedPercentage}}
+                       },
+                       {
+                         "name": "Grafton West",
+                         "totalSpaces": {{graftonWest.TotalSpaces}},
+                         "vacantSpaces": {{graftonWest.VacantSpaces}},
+                         "occupiedPercentage": {{graftonWest.OccupiedPercentage}}
+                       },
+                       {
+                         "name": "Grand Arcade",
+                         "totalSpaces": {{grandArcade.TotalSpaces}},
+                         "vacantSpaces": {{grandArcade.VacantSpaces}},
+                         "occupiedPercentage": {{grandArcade.OccupiedPercentage}}
+                       },
+                       {
+                         "name": "Park Street",
+                         "totalSpaces": {{parkStreet.TotalSpaces}},
+                         "vacantSpaces": {{parkStreet.VacantSpaces}},
+                         "occupiedPercentage": {{parkStreet.OccupiedPercentage}}
+                       },
+                       {
+                         "name": "Queen Anne",
+                         "totalSpaces": {{queenAnne.TotalSpaces}},
+                         "vacantSpaces": {{queenAnne.VacantSpaces}},
+                         "occupiedPercentage": {{queenAnne.OccupiedPercentage}}
+                       }
+                     ]
+                     """;
+        }
+
+        private (int TotalSpaces, int VacantSpaces, int OccupiedPercentage) CreateRandomFullness(int totalSpaces)
+        {
+            var vacantSpaces = totalSpaces - _random.Next(1, totalSpaces);
+            var percentageFull = Convert.ToInt32((double) (totalSpaces - vacantSpaces) / totalSpaces * 100);
+            return (totalSpaces, vacantSpaces, percentageFull);
+        }
     }
 }
