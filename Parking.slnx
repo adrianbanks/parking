@@ -30,4 +30,5 @@
   </Folder>
   <Project Path="NoFramework/NoFramework.csproj" />
   <Project Path="Parking.Domain/Parking.Domain.csproj" />
+  <Project Path="Parking.Runner/Parking.Runner.csproj" />
 </Solution>

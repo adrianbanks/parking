@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Parking.Runner</AssemblyName>
+    <RootNamespace>Parking.Runner</RootNamespace>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Akka.Ask\Akka.Ask.csproj" />
+    <ProjectReference Include="..\Akka.Tell\Akka.Tell.csproj" />
+    <ProjectReference Include="..\Brighter.Brighter\Brighter.Brighter.csproj" />
+    <ProjectReference Include="..\Brighter.Darker\Brighter.Darker.csproj" />
+    <ProjectReference Include="..\Mediator.Publish\Mediator.Publish.csproj" />
+    <ProjectReference Include="..\Mediator.Send\Mediator.Send.csproj" />
+    <ProjectReference Include="..\Mediatr.Publish\Mediatr.Publish.csproj" />
+    <ProjectReference Include="..\Mediatr.Send\Mediatr.Send.csproj" />
+    <ProjectReference Include="..\MicroBus.Query\MicroBus.Query.csproj" />
+    <ProjectReference Include="..\MicroBus.Send\MicroBus.Send.csproj" />
+    <ProjectReference Include="..\NoFramework\NoFramework.csproj" />
+    <ProjectReference Include="..\Shiny.Publish\Shiny.Publish.csproj" />
+    <ProjectReference Include="..\Shiny.Request\Shiny.Request.csproj" />
+    <ProjectReference Include="..\Shiny.Send\Shiny.Send.csproj" />
+  </ItemGroup>
+</Project>
