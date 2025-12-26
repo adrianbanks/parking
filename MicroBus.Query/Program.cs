@@ -13,9 +13,9 @@ using Parking.MicroBus.Query.ParseCarParksFromData;
 
 namespace Parking.MicroBus.Query;
 
-internal static class Program
+public static class Program
 {
-    internal static async Task Main()
+    public static async Task Main()
     {
         var busBuilder = new BusBuilder()
             .RegisterQueryHandler<InformationQuery, string, InformationQueryHandler>()

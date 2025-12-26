@@ -6,9 +6,9 @@ using Parking.Mediator.Send.Information;
 
 namespace Parking.Mediator.Send;
 
-internal static class Program
+public static class Program
 {
-    internal static async Task Main()
+    public static async Task Main()
     {
         var services = new ServiceCollection();
         services.AddMediator();

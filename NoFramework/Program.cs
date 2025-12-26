@@ -4,9 +4,9 @@ using Parking.Domain;
 
 namespace Parking.NoFramework;
 
-internal static class Program
+public static class Program
 {
-    internal static async Task Main()
+    public static async Task Main()
     {
         var data = await DataFetcher.FetchData(SourceData.Url);
         var carParks = CarParkParser.Parse(data);

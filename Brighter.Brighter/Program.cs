@@ -12,9 +12,9 @@ using Parking.Brighter.Brighter.ParseCarParksFromData;
 
 namespace Parking.Brighter.Brighter;
 
-internal static class Program
+public static class Program
 {
-    internal static async Task Main()
+    public static async Task Main()
     {
         var host = new HostBuilder()
             .ConfigureServices((_, collection) =>

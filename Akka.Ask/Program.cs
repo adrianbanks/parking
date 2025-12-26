@@ -4,9 +4,9 @@ using Parking.Akka.Ask.Information;
 
 namespace Parking.Akka.Ask;
 
-internal static class Program
+public static class Program
 {
-    internal static void Main()
+    public static void Main()
     {
         var actorSystem = ActorSystem.Create("parking");
         var actorRef = actorSystem.ActorOf<InformationActor>();

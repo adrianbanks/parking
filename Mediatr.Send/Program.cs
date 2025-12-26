@@ -6,9 +6,9 @@ using Parking.Mediatr.Send.Information;
 
 namespace Parking.Mediatr.Send;
 
-internal static class Program
+public static class Program
 {
-    internal static async Task Main()
+    public static async Task Main()
     {
         var services = new ServiceCollection();
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));

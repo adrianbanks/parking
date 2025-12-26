@@ -11,9 +11,9 @@ using Parking.MicroBus.Send.SendOutput;
 
 namespace Parking.MicroBus.Send;
 
-internal static class Program
+public static class Program
 {
-    internal static async Task Main()
+    public static async Task Main()
     {
         var busBuilder = new BusBuilder()
             .RegisterCommandHandler<InformationCommand, InformationCommandHandler>()

@@ -14,9 +14,9 @@ using Parking.Domain;
 
 namespace Parking.Brighter.Darker;
 
-internal static class Program
+public static class Program
 {
-    internal static async Task Main()
+    public static async Task Main()
     {
         var host = new HostBuilder()
             .ConfigureServices((_, collection) =>
