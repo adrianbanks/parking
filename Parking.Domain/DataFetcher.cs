@@ -77,7 +77,7 @@ public static class DataFetcher
     {
         var random = new Random();
         var vacantSpaces = totalSpaces - random.Next(1, totalSpaces);
-        var percentageFull = Convert.ToInt32((double)(totalSpaces - vacantSpaces) / totalSpaces * 100);
+        var percentageFull = Convert.ToInt32((double) (totalSpaces - vacantSpaces) / totalSpaces * 100);
         return (totalSpaces, vacantSpaces, percentageFull);
     }
 }

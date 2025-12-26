@@ -11,6 +11,10 @@
     <Project Path="Brighter.Brighter/Brighter.Brighter.csproj" />
     <Project Path="Brighter.Darker/Brighter.Darker.csproj" />
   </Folder>
+  <Folder Name="/Mediator/">
+    <Project Path="Mediator.Publish/Mediator.Publish.csproj" />
+    <Project Path="Mediator.Send/Mediator.Send.csproj" />
+  </Folder>
   <Folder Name="/Mediatr/">
     <Project Path="Mediatr.Publish/Mediatr.Publish.csproj" />
     <Project Path="Mediatr.Send/Mediatr.Send.csproj" />

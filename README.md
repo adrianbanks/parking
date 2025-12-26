@@ -20,6 +20,7 @@ The libraries used are:
 
 - [Akka.NET](https://github.com/akkadotnet/akka.net) (implementations: [Ask](Akka.Ask), [Tell](Akka.Tell))
 - [Brighter Command](https://github.com/BrighterCommand) (implementations: [Brighter](Brighter.Brighter), [Darker](Brighter.Darker))
+- [Mediator](https://github.com/martinothamar/Mediator) (implementations: [Publish](Mediator.Publish), [Send](Mediator.Send))
 - [MediatR](https://github.com/LuckyPennySoftware/MediatR) (implementations: [Publish](MediatR.Publish), [Send](MediatR.Send))
 - [MicroBus](https://github.com/daniellittledev/Enexure.MicroBus) (implementations: [Query](MicroBus.Query), [Send](MicroBus.Send))
 - [Shiny](https://github.com/shinyorg/mediator) (implementations: [Publish](Shiny.Publish), [Request](Shiny.Request), [Send](Shiny.Send))
