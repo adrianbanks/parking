@@ -13,6 +13,7 @@
   </Folder>
   <Folder Name="/LiteBus/">
     <Project Path="LiteBus.Query/LiteBus.Query.csproj" />
+    <Project Path="LiteBus.Send/LiteBus.Send.csproj" />
   </Folder>
   <Folder Name="/Mediator/">
     <Project Path="Mediator.Publish/Mediator.Publish.csproj" />

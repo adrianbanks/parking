@@ -68,5 +68,9 @@ internal static class Program
         Console.WriteLine();
         Console.WriteLine("LiteBus: Query");
         await LiteBus.Query.Program.Main();
+
+        Console.WriteLine();
+        Console.WriteLine("LiteBus: Send");
+        await LiteBus.Send.Program.Main();
     }
 }
