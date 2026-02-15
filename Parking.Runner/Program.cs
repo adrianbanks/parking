@@ -64,5 +64,9 @@ internal static class Program
         Console.WriteLine();
         Console.WriteLine("Shiny: Send");
         await Shiny.Send.Program.Main();
+
+        Console.WriteLine();
+        Console.WriteLine("LiteBus: Query");
+        await LiteBus.Query.Program.Main();
     }
 }

@@ -10,6 +10,7 @@
     <ProjectReference Include="..\Akka.Tell\Akka.Tell.csproj" />
     <ProjectReference Include="..\Brighter.Brighter\Brighter.Brighter.csproj" />
     <ProjectReference Include="..\Brighter.Darker\Brighter.Darker.csproj" />
+    <ProjectReference Include="..\LiteBus.Query\LiteBus.Query.csproj" />
     <ProjectReference Include="..\Mediator.Publish\Mediator.Publish.csproj" />
     <ProjectReference Include="..\Mediator.Send\Mediator.Send.csproj" />
     <ProjectReference Include="..\Mediatr.Publish\Mediatr.Publish.csproj" />

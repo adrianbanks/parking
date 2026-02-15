@@ -11,6 +11,9 @@
     <Project Path="Brighter.Brighter/Brighter.Brighter.csproj" />
     <Project Path="Brighter.Darker/Brighter.Darker.csproj" />
   </Folder>
+  <Folder Name="/LiteBus/">
+    <Project Path="LiteBus.Query/LiteBus.Query.csproj" />
+  </Folder>
   <Folder Name="/Mediator/">
     <Project Path="Mediator.Publish/Mediator.Publish.csproj" />
     <Project Path="Mediator.Send/Mediator.Send.csproj" />
