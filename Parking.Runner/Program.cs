@@ -72,5 +72,9 @@ internal static class Program
         Console.WriteLine();
         Console.WriteLine("LiteBus: Send");
         await LiteBus.Send.Program.Main();
+
+        Console.WriteLine();
+        Console.WriteLine("LiteBus: Publish");
+        await LiteBus.Publish.Program.Main();
     }
 }

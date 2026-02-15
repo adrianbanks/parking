@@ -12,6 +12,7 @@
     <Project Path="Brighter.Darker/Brighter.Darker.csproj" />
   </Folder>
   <Folder Name="/LiteBus/">
+    <Project Path="LiteBus.Publish/LiteBus.Publish.csproj" />
     <Project Path="LiteBus.Query/LiteBus.Query.csproj" />
     <Project Path="LiteBus.Send/LiteBus.Send.csproj" />
   </Folder>
