@@ -23,5 +23,9 @@
     <ProjectReference Include="..\Shiny.Publish\Shiny.Publish.csproj" />
     <ProjectReference Include="..\Shiny.Request\Shiny.Request.csproj" />
     <ProjectReference Include="..\Shiny.Send\Shiny.Send.csproj" />
+    <ProjectReference Include="..\SwitchMediator.Publish\SwitchMediator.Publish.csproj" />
+    <ProjectReference Include="..\SwitchMediator.Send\SwitchMediator.Send.csproj" />
+    <ProjectReference Include="..\SwitchMediator.ValuePublish\SwitchMediator.ValuePublish.csproj" />
+    <ProjectReference Include="..\SwitchMediator.ValueSend\SwitchMediator.ValueSend.csproj" />
   </ItemGroup>
 </Project>

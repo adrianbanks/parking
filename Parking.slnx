@@ -33,6 +33,12 @@
     <Project Path="Shiny.Request/Shiny.Request.csproj" />
     <Project Path="Shiny.Send/Shiny.Send.csproj" />
   </Folder>
+  <Folder Name="/SwitchMediator/">
+    <Project Path="SwitchMediator.Publish/SwitchMediator.Publish.csproj" />
+    <Project Path="SwitchMediator.Send/SwitchMediator.Send.csproj" />
+    <Project Path="SwitchMediator.ValuePublish/SwitchMediator.ValuePublish.csproj" />
+    <Project Path="SwitchMediator.ValueSend/SwitchMediator.ValueSend.csproj" />
+  </Folder>
   <Project Path="NoFramework/NoFramework.csproj" />
   <Project Path="Parking.Domain/Parking.Domain.csproj" />
   <Project Path="Parking.Runner/Parking.Runner.csproj" />

@@ -30,6 +30,18 @@ internal static class Program
         await Brighter.Darker.Program.Main();
 
         Console.WriteLine();
+        Console.WriteLine("LiteBus: Query");
+        await LiteBus.Query.Program.Main();
+
+        Console.WriteLine();
+        Console.WriteLine("LiteBus: Send");
+        await LiteBus.Send.Program.Main();
+
+        Console.WriteLine();
+        Console.WriteLine("LiteBus: Publish");
+        await LiteBus.Publish.Program.Main();
+
+        Console.WriteLine();
         Console.WriteLine("Mediator: Publish");
         await Mediator.Publish.Program.Main();
 
@@ -66,12 +78,21 @@ internal static class Program
         await Shiny.Send.Program.Main();
 
         Console.WriteLine();
-        Console.WriteLine("LiteBus: Query");
-        await LiteBus.Query.Program.Main();
+        Console.WriteLine("SwitchMediator: Publish");
+        await SwitchMediator.Publish.Program.Main();
 
         Console.WriteLine();
-        Console.WriteLine("LiteBus: Send");
-        await LiteBus.Send.Program.Main();
+        Console.WriteLine("SwitchMediator: Send");
+        await SwitchMediator.Send.Program.Main();
+
+        Console.WriteLine();
+        Console.WriteLine("SwitchMediator: ValuePublish");
+        await SwitchMediator.ValuePublish.Program.Main();
+
+        Console.WriteLine();
+        Console.WriteLine("SwitchMediator: ValueSend");
+        await SwitchMediator.ValueSend.Program.Main();
+
 
         Console.WriteLine();
         Console.WriteLine("LiteBus: Publish");

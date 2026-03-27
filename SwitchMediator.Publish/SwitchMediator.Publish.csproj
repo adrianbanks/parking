@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Parking.SwitchMediator.Publish</AssemblyName>
+    <RootNamespace>Parking.SwitchMediator.Publish</RootNamespace>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mediator.Switch.Extensions.Microsoft.DependencyInjection" Version="3.1.0" />
+    <PackageReference Include="Mediator.Switch.SourceGenerator" Version="3.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Parking.Domain\Parking.Domain.csproj" />
+  </ItemGroup>
+</Project>

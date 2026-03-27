@@ -24,3 +24,4 @@ The libraries used are:
 - [MediatR](https://github.com/LuckyPennySoftware/MediatR) (implementations: [Publish](MediatR.Publish), [Send](MediatR.Send))
 - [MicroBus](https://github.com/daniellittledev/Enexure.MicroBus) (implementations: [Query](MicroBus.Query), [Send](MicroBus.Send))
 - [Shiny](https://github.com/shinyorg/mediator) (implementations: [Publish](Shiny.Publish), [Request](Shiny.Request), [Send](Shiny.Send))
+- [SwitchMediator](https://github.com/zachsaw/SwitchMediator) (implementations: [Publish](SwitchMediator.Publish), [Send](SwitchMediator.Send), [ValuePublish](SwitchMediator.ValuePublish), [ValueSend](SwitchMediator.ValueSend))
