@@ -1,0 +1,28 @@
+name: Build and run tests
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 10.0.200
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore --configuration Release /p:DebugType=None
+    - name: Run tests
+      run: dotnet test --no-restore --verbosity normal
