@@ -92,10 +92,5 @@ internal static class Program
         Console.WriteLine();
         Console.WriteLine("SwitchMediator: ValueSend");
         await SwitchMediator.ValueSend.Program.Main();
-
-
-        Console.WriteLine();
-        Console.WriteLine("LiteBus: Publish");
-        await LiteBus.Publish.Program.Main();
     }
 }
